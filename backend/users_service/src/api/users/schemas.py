@@ -17,13 +17,9 @@ class RegisterUser(BaseUser):
 
 class User(BaseUser):
     id: int
-    created_at: datetime
+    created_at: Optional[datetime | None] = None
     password: Optional[str | None] = None
 
 
 class GetUsersResponse(BaseModel):
     users: List[User]
-
-
-class GetUserByIdResponse(BaseModel):
-    user: User

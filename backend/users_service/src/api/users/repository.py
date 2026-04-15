@@ -6,22 +6,28 @@ class UsersRepository:
     def __init__(self, db):
         self.db = db
 
-    async def get(self, id: int) -> User | None:
-        user = await self.db.fetchrow("SELECT * FROM users WHERE id=$1", id)
+    async def get(self, id: int, include_password=False) -> User | None:
+        stmt = f"SELECT id, email, created_at{', password' if include_password else ''} FROM users WHERE id=$1"
+
+        print(stmt)
+
+        user = await self.db.fetchrow(stmt, id)
         if not user:
             return None
 
         user = dict(user)
+
         result = User(
             id=id,
-            email=user.get("email"),
             password=user.get("password"),
+            email=user.get("email"),
             created_at=user.get("created_at"),
         )
-        return result
+
+        return result.model_dump(exclude_none=True)
 
     async def get_all(self) -> List[User]:
-        records = await self.db.fetch("SELECT * FROM users")
+        records = await self.db.fetch("SELECT id, email, created_at FROM users")
         users = [dict(record) for record in records]
         users = [
             User(
@@ -32,6 +38,22 @@ class UsersRepository:
             for user in users
         ]
         return users
+
+    async def get_by_email(self, email: str) -> User:
+        record = await self.db.fetchrow(
+            "SELECT id, email, password FROM users WHERE email=$1", email
+        )
+        if record is None:
+            return None
+
+        record = dict(record)
+        user = User(
+            id=record.get("id"),
+            email=record.get("email"),
+            password=record.get("password"),
+        )
+
+        return user
 
     async def delete(self, id: int) -> User | None:
         user = self.db.fetchrow("DELETE FROM users WHERE id=$1", id)

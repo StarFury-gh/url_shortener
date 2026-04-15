@@ -9,7 +9,9 @@ class Config:
         self.DB_PORT = getenv("DB_PORT")
         self.DB_USER = getenv("DB_USER")
         self.DB_PASSWORD = getenv("DB_PASSWORD")
-        self.DSN = f"postgres://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}"
+        self.DB_NAME = getenv("DB_NAME")
+        self.DSN = f"postgresql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+        self.JWT_SECRET_KEY = getenv("JWT_SECRET_KEY")
 
 
 cfg_obj = Config()
