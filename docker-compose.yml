@@ -1,0 +1,28 @@
+services:
+  users_db:
+    build: ./infra/db/users
+    ports:
+      - 5432:5432
+    volumes:
+      - users_data:/var/lib/postgresql
+    networks:
+      - users_network
+
+  analytics_db:
+    build: ./infra/db/analytics
+    ports:
+      - 5433:5432
+    volumes:
+      - analytics_data:/var/lib/postgresql
+    networks:
+      - analytics_network
+
+networks:
+  users_network:
+    driver: bridge
+  analytics_network:
+    driver: bridge
+
+volumes:
+  users_data:
+  analytics_data:
