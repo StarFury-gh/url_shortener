@@ -17,12 +17,24 @@ services:
     networks:
       - analytics_network
 
+  shortener_db:
+    build: ./infra/db/shortener
+    ports:
+      - 5434:5432
+    volumes:
+      - shortener_data:/var/lib/postgresql
+    networks:
+      - shortener_network
+
 networks:
   users_network:
     driver: bridge
   analytics_network:
     driver: bridge
+  shortener_network:
+    driver: bridge
 
 volumes:
   users_data:
   analytics_data:
+  shortener_data:
