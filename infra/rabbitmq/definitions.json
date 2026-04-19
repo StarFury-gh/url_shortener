@@ -41,8 +41,8 @@
     {
       "user": "analytics_consumer",
       "vhost": "/",
-      "configure": "",
-      "write": "",
+      "configure": ".*",
+      "write": ".*",
       "read": ".*"
     }
   ]

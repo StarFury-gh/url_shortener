@@ -36,6 +36,16 @@ services:
     networks:
       - event_driven
 
+  shortener_service:
+    build: ./backend/shortener_service
+    ports:
+      - 8001:8000
+    networks:
+      - event_driven
+      - shortener_network
+    depends_on:
+      - shortener_db
+
 networks:
   users_network:
     driver: bridge
