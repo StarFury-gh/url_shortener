@@ -5,6 +5,8 @@ from asyncpg.exceptions import UniqueViolationError
 from hashlib import sha256
 
 from core.utils import is_valid_url
+from core.rabbit import RabbitPublisher
+from core.rabbit.schemas import RedirectRequestInfo
 
 from .repository import ShortenerRepository
 from .schemas import CreateLinkDTO
@@ -14,9 +16,17 @@ class ShortenerService:
     def __init__(self, repo: ShortenerRepository) -> None:
         self.repo = repo
 
-    async def get_and_redirect(self, slug: str):
+    async def get_links(self, limit: int = 10, offset: int = 0):
+        links = await self.repo.get_all()
+        return {"links": links, "total": len(links)}
+
+    async def get_and_redirect(
+        self, slug: str, broker: RabbitPublisher, info: RedirectRequestInfo
+    ):
         link = await self.repo.get(slug)
         if link:
+            message = RedirectRequestInfo(slug=slug, ip=info.ip, agent=info.agent)
+            await broker.handle_redirect(message)
             return RedirectResponse(link.original_url)
 
         raise HTTPException(
@@ -46,3 +56,12 @@ class ShortenerService:
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail="Internal server error",
             )
+
+    async def delete_by_slug(self, slug: str):
+        result = await self.repo.delete(slug)
+        if result is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Url with slug is not found",
+            )
+        return {"deleted": slug, "origin": result}

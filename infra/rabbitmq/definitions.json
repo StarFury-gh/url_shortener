@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "name": "rabbit",
+      "password": "01766",
+      "tags": "administrator"
+    },
+    {
+      "name": "sh_publisher",
+      "password": "01766",
+      "tags": ""
+    },
+    {
+      "name": "analytics_consumer",
+      "password": "01766",
+      "tags": ""
+    }
+  ],
+
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+
+  "permissions": [
+    {
+      "user": "rabbit",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "sh_publisher",
+      "vhost": "/",
+      "configure": "",
+      "write": ".*",
+      "read": ""
+    },
+    {
+      "user": "analytics_consumer",
+      "vhost": "/",
+      "configure": "",
+      "write": "",
+      "read": ".*"
+    }
+  ]
+}

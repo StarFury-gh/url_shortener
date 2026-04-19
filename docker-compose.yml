@@ -16,6 +16,7 @@ services:
       - analytics_data:/var/lib/postgresql
     networks:
       - analytics_network
+      - event_driven
 
   shortener_db:
     build: ./infra/db/shortener
@@ -25,6 +26,15 @@ services:
       - shortener_data:/var/lib/postgresql
     networks:
       - shortener_network
+      - event_driven
+
+  rabbit:
+    build: ./infra/rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - event_driven
 
 networks:
   users_network:
@@ -32,6 +42,8 @@ networks:
   analytics_network:
     driver: bridge
   shortener_network:
+    driver: bridge
+  event_driven:
     driver: bridge
 
 volumes:

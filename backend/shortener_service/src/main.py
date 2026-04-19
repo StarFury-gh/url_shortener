@@ -4,14 +4,18 @@ from uvicorn import run
 from contextlib import asynccontextmanager
 
 from core.db.postgres import create_pg_pool
+from core.rabbit import create_rmq_connection
 from api.shortener import sh_router
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     pg_pool = await create_pg_pool()
+    rabbit = await create_rmq_connection()
     app.state.pg_pool = pg_pool
+    app.state.rabbit = rabbit
     yield
+    await app.state.rabbit.stop()
     await app.state.pg_pool.close()
 
 

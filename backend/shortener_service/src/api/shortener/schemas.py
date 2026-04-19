@@ -9,3 +9,17 @@ class CreateLinkDTO(BaseModel):
 class Link(BaseModel):
     slug: str
     original_url: str
+
+
+class Pagination(BaseModel):
+    limit: int
+    offset: int
+
+
+class RequestInfo(BaseModel):
+    ip: str
+    agent: str
+
+
+class RedirectRequestInfo(RequestInfo):
+    slug: str
