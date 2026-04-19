@@ -6,7 +6,10 @@ class Config:
     def __init__(self):
         load_dotenv()
         self.RMQ_USER = getenv("RMQ_USER")
-        self.RMQ_DSN = "amqp://user:password@host:5672"
+        self.RMQ_PASSWORD = getenv("RMQ_PASSWORD")
+        self.RMQ_HOST = getenv("RMQ_HOST")
+        self.RMQ_PORT = getenv("RMQ_PORT")
+        self.RMQ_DSN = f"amqp://{self.RMQ_USER}:{self.RMQ_PASSWORD}@{self.RMQ_HOST}:{self.RMQ_PORT}"
 
         self.PG_USER = getenv("PG_USER")
         self.PG_PASSWORD = getenv("PG_PASSWORD")

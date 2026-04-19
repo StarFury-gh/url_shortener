@@ -28,11 +28,17 @@ async def get_and_redirect(
 
 @sh_router.post("/create")
 async def create_short_link(
-    body: CreateLinkDTO, service: ShortenerService = Depends(get_service)
+    body: CreateLinkDTO,
+    service: ShortenerService = Depends(get_service),
+    broker=Depends(get_publisher),
 ):
-    return await service.create_link(body)
+    return await service.create_link(body, broker=broker)
 
 
 @sh_router.delete("/delete/{slug}")
-async def delete_by_id(slug: str, service: ShortenerService = Depends(get_service)):
-    return await service.delete_by_slug(slug)
+async def delete_by_id(
+    slug: str,
+    service: ShortenerService = Depends(get_service),
+    broker=Depends(get_publisher),
+):
+    return await service.delete_by_slug(slug, broker=broker)

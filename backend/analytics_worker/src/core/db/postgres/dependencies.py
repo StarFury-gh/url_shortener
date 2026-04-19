@@ -3,4 +3,4 @@ from asyncpg import Connection
 
 
 async def get_pg(r: Request) -> Connection:
-    return await r.app.state.pg_pool.aquire()
+    return await r.app.state.pg_pool.acquire()

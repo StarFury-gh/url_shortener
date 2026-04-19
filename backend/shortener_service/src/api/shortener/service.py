@@ -33,7 +33,7 @@ class ShortenerService:
             status_code=status.HTTP_404_NOT_FOUND, detail="Resource not found"
         )
 
-    async def create_link(self, body: CreateLinkDTO):
+    async def create_link(self, body: CreateLinkDTO, broker: RabbitPublisher):
         try:
             if not is_valid_url(body.original_url):
                 raise HTTPException(
@@ -43,6 +43,9 @@ class ShortenerService:
             link = await self.repo.get(slug)
             if not link:
                 await self.repo.create(original_url=body.original_url, slug=slug)
+                await broker.publish(
+                    {"operation": "created", "slug": slug}, queue="links_actions"
+                )
             return {"slug": slug}
         except UniqueViolationError:
             raise HTTPException(
@@ -57,11 +60,14 @@ class ShortenerService:
                 detail="Internal server error",
             )
 
-    async def delete_by_slug(self, slug: str):
+    async def delete_by_slug(self, slug: str, broker: RabbitPublisher):
         result = await self.repo.delete(slug)
         if result is None:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail="Url with slug is not found",
             )
+        await broker.publish(
+            {"operation": "deleted", "slug": slug}, queue="links_actions"
+        )
         return {"deleted": slug, "origin": result}
