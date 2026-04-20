@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from uvicorn import run
 
+from asyncio import wait_for
+
 from contextlib import asynccontextmanager
 
 from core.db.postgres import create_pg_pool
@@ -12,7 +14,7 @@ async def lifespan(app: FastAPI):
     pg_pool = await create_pg_pool()
     app.state.pg_pool = pg_pool
     yield
-    await app.state.pg_pool.close()
+    await wait_for(app.state.pg_pool.close(), timeout=10)
 
 
 app = FastAPI(lifespan=lifespan)

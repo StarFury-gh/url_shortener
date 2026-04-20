@@ -10,7 +10,7 @@ from .text_logger import get_text_logger
 load_dotenv()
 
 
-def get_logger(name: str = __name__) -> Logger:
+def get_logger(name: str = "analytics_worker") -> Logger:
     env_type = getenv("ENV_TYPE")
     if env_type is None:
         print("WARNING: ENV VARIABLE 'ENV_TYPE' is not provided, using: LOCAL")
