@@ -31,7 +31,7 @@ class WorkerRepository:
             os,
             device,
             raw_agent,
-            0,
+            1,
         )
 
     async def create_link_stats(self, slug: str) -> None:
