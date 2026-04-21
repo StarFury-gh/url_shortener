@@ -46,12 +46,6 @@ class WorkerRepository:
             "UPDATE clicks SET clicked_times=clicked_times+1 WHERE slug=$1", slug
         )
 
-    async def get_by_slug(self, slug: str):
-        pass
-
-    async def get_all(self):
-        pass
-
     async def delete_link_stats(self, slug: str):
         """Delete stats record about deleted slug"""
         await self.db.execute("DELETE FROM clicks WHERE slug=$1", slug)

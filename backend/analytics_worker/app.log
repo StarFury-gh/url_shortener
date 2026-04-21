@@ -50,3 +50,8 @@
 2026-04-20 21:35:06,688 INFO - | analytics_worker | - Redirected by shortified link with slug: b894e98f774e
 2026-04-20 21:38:10,836 INFO - | analytics_worker | - Handled operation 'created' with slug: 'b894e98f774e'
 2026-04-20 21:38:17,676 INFO - | analytics_worker | - Handled operation 'deleted' with slug: 'b894e98f774e'
+2026-04-20 21:40:16,029 INFO - | aio_pika.robust_connection | - Connection to amqp://analytics_consumer:******@localhost:5672/ closed. Reconnecting after 5 seconds.
+2026-04-20 21:40:16,030 ERROR - | aio_pika.tools | - Callback <OneShotCallback: cb=<bound method RobustChannel._on_close of <aio_pika.robust_channel.RobustChannel object at 0x7b81823a00b0>>> error: ChannelInvalidStateError: No active transport in channel
+2026-04-20 21:40:16,030 ERROR - | aiormq.connection | - error when creating transport: <AMQPConnectionError: (111, "Connect call failed ('127.0.0.1', 5672)")>
+2026-04-20 21:40:16,031 INFO - | aio_pika.robust_connection | - Connection to amqp://analytics_consumer:******@localhost:5672/ closed. Reconnecting after 5 seconds.
+2026-04-20 21:40:16,031 WARNING - | aio_pika.robust_connection | - Connection attempt to "amqp://analytics_consumer:******@localhost:5672/" failed: [Errno 111] Connect call failed ('127.0.0.1', 5672). Reconnecting after 5 seconds.
