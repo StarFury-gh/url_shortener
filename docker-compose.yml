@@ -45,6 +45,16 @@ services:
       - shortener_network
     depends_on:
       - shortener_db
+      - rabbit
+
+  analytics_worker:
+    build: ./backend/analytics_worker
+    networks:
+      - event_driven
+      - analytics_network
+    depends_on:
+      - rabbit
+      - analytics_db
 
 networks:
   users_network:
