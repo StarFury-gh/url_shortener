@@ -7,6 +7,7 @@ services:
       - users_data:/var/lib/postgresql
     networks:
       - users_network
+      
 
   analytics_db:
     build: ./infra/db/analytics
@@ -44,8 +45,10 @@ services:
       - event_driven
       - shortener_network
     depends_on:
-      - shortener_db
-      - rabbit
+      shortener_db:
+        condition: service_healthy
+      rabbit:
+        condition: service_healthy
 
   analytics_worker:
     build: ./backend/analytics_worker
@@ -53,8 +56,10 @@ services:
       - event_driven
       - analytics_network
     depends_on:
-      - rabbit
-      - analytics_db
+      analytics_db:
+        condition: service_healthy
+      rabbit:
+        condition: service_healthy
 
 networks:
   users_network:
