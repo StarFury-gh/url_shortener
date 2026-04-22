@@ -36,6 +36,10 @@ class WorkerService:
         device = agent_info.device.family
 
         await self._repo.update_agent_stats(
-            slug=msg.slug, browser=browser, os=os, device=device
+            slug=msg.slug,
+            browser=browser,
+            os=os,
+            device=device,
+            raw_agent=str(agent_info),
         )
         await self._repo.inc_clicks_count(slug=msg.slug)

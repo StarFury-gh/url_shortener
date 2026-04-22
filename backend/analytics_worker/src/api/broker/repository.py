@@ -1,6 +1,6 @@
 from asyncpg import Connection
 
-from .schemas import ClicksCount
+from .schemas import ClicksCount, BrowserAgent
 
 
 class WorkerRepository:
@@ -15,13 +15,15 @@ class WorkerRepository:
             return ClicksCount(**dict(record), slug=slug)
         return None
 
-    async def update_agent_stats(self, slug: str, browser: str, os: str, device: str):
+    async def update_agent_stats(
+        self, slug: str, browser: str, os: str, device: str, raw_agent: str
+    ):
         """Create or update clicks_count about redirect by slug agent"""
         await self.db.execute(
             """
-            INSERT INTO users_agents (slug, browser, os, device_type, clicks_count) 
-            VALUES ($1, $2, $3, $4, $5)
-            ON CONFLICT (slug) DO UPDATE SET
+            INSERT INTO users_agents (slug, browser, os, device_type, clicks_count, raw_agent) 
+            VALUES ($1, $2, $3, $4, $5, $6)
+            ON CONFLICT (raw_agent) DO UPDATE SET
                 clicks_count=users_agents.clicks_count+1
             """,
             slug,
@@ -29,6 +31,7 @@ class WorkerRepository:
             os,
             device,
             1,
+            raw_agent,
         )
 
     async def create_link_stats(self, slug: str) -> None:

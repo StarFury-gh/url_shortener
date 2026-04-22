@@ -1,6 +1,12 @@
 from pydantic import BaseModel
 
 
+class BrowserAgent(BaseModel):
+    browser: str
+    os: str
+    device_type: str
+
+
 class ClickInfo(BaseModel):
     ip: str
     agent: str
