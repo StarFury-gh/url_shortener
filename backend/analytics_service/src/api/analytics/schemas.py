@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from typing import List
 
 
 class Pagination(BaseModel):
@@ -7,12 +6,14 @@ class Pagination(BaseModel):
     offset: int = 0
 
 
-class SlugAgent:
+class BrowserAgent(BaseModel):
     browser: str
     device_type: str
+    os: str
+    clicks_count: int
 
 
-class SlugInfo(BaseModel):
+class FullSlugInfo(BaseModel):
     slug: str
-    clicked_times: int
-    agents: List[SlugAgent]
+    clicked_times: int | None
+    agents: list[BrowserAgent]
