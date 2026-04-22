@@ -7,6 +7,7 @@ CREATE TABLE clicks (
 -- Интернет агенты пользователей
 CREATE TABLE users_agents (
     slug VARCHAR(12) REFERENCES clicks(slug),
+    raw_agent VARCHAR(255) UNIQUE,
     browser VARCHAR(32),
     os VARCHAR(32),
     device_type VARCHAR(32),
