@@ -15,22 +15,19 @@ class WorkerRepository:
             return ClicksCount(**dict(record), slug=slug)
         return None
 
-    async def update_agent_stats(
-        self, slug: str, browser: str, os: str, device: str, raw_agent: str
-    ):
+    async def update_agent_stats(self, slug: str, browser: str, os: str, device: str):
         """Create or update clicks_count about redirect by slug agent"""
         await self.db.execute(
             """
-            INSERT INTO users_agents (slug, browser, os, device_type, raw_str, clicks_count) 
-            VALUES ($1, $2, $3, $4, $5, $6)
-            ON CONFLICT (raw_str) DO UPDATE SET
+            INSERT INTO users_agents (slug, browser, os, device_type, clicks_count) 
+            VALUES ($1, $2, $3, $4, $5)
+            ON CONFLICT (slug) DO UPDATE SET
                 clicks_count=users_agents.clicks_count+1
             """,
             slug,
             browser,
             os,
             device,
-            raw_agent,
             1,
         )
 
