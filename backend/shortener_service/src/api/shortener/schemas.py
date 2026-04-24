@@ -12,8 +12,8 @@ class Link(BaseModel):
 
 
 class Pagination(BaseModel):
-    limit: int
-    offset: int
+    limit: int = 100
+    offset: int = 0
 
 
 class RequestInfo(BaseModel):

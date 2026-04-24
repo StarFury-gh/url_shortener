@@ -39,10 +39,11 @@ class ShortenerService:
                 raise HTTPException(
                     status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid url"
                 )
-            slug = sha256(body.original_url.encode("utf-8")).hexdigest()[:12]
+            original_url = body.original_url.strip("/")
+            slug = sha256(original_url.encode("utf-8")).hexdigest()[:12]
             link = await self.repo.get(slug)
             if not link:
-                await self.repo.create(original_url=body.original_url, slug=slug)
+                await self.repo.create(original_url=original_url, slug=slug)
                 await broker.publish(
                     {"operation": "created", "slug": slug}, queue="links_actions"
                 )
