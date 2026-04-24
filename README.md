@@ -2,7 +2,7 @@
 
 ## Сервис: Postgresql DB для Пользователей (users_db контейнер)
 
-### 1) Таблица / Сущность: users / Пользователь
+### Таблица users
 
 - id
 - email
@@ -13,43 +13,43 @@
 
 ## Сервис: Postgresql DB для Аналитики перехода по ссылкам (analytics_db контейнер)
 
-#### Таблица counting:
+#### Таблица clicks:
 
 - slug PK
 - clicked_times
 
-### Таблица details
+### Таблица users_agents
 
-- slug
-- ip
-- agent
+- slug REFERENCES clicks(slug)
+- raw_agent UNIQUE
+- browser
+- os
+- device_type
 - clicked_times
+
+---
+
+## Сервис: Postgresql DB для Сокращённых ссылок (shortener_db контейнер)
+
+- slug PK
+- origin
+- created_at
 
 ## Сервис: RabbitMQ
 
-### Очередь: <>
+### Очередь: sh_redirect
 
-- <поле_1>
-- <поле_2>
-- <поле_3>
+При сообщении, сохраняет информацию о переходе по сокращённой ссылке.
+Формат сообщения:
 
----
+- agent
+- slug
+- ip
 
-### API / Сервис: <название>
+### Очередь: links_actions
 
-- endpoint: <url>
-- метод: <GET/POST/...>
-- описание: <что делает>
+Отслеживает сообщения на изменение состояния ссылок (создание, удаление)
+Формат сообщения:
 
----
-
-### Константы / Переменные окружения
-
-- <NAME> — <описание>
-- <NAME> — <описание>
-
----
-
-### Прочее
-
-- <любые дополнительные заметки>
+- operation: created, deleted
+- slug
