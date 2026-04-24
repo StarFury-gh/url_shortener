@@ -1,4 +1,5 @@
-import LinkStatsPage from "./LinkStatsPage";
+import LinksPage from "./LinksPage";
 import MainPage from "./MainPage";
+import LinkAnalyticPage from "./LinkAnalyticPage";
 
-export {LinkStatsPage, MainPage}
+export { LinksPage, MainPage, LinkAnalyticPage };
