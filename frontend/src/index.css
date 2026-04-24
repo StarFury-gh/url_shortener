@@ -1,0 +1,14 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: hsl(0, 0%, 90%);
+  --light-blue: hsl(200, 70%, 90%);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
