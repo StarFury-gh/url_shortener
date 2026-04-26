@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { Segmented } from "antd";
+import { Select } from "antd";
 
 import styles from "./LinkAnalyticPage.module.css";
 
-import BarChart from "../../components/BarChart";
+import { BarChart, PieChart } from "../../components/charts/";
 import { AN_API_URL } from "../../constants";
 
 import MapServerResponse from "../../utils/analytics";
@@ -19,6 +19,17 @@ interface ChartValues {
   value: number;
 }
 
+const SelectDataOptions = [
+  { value: "Browser", label: "Browser" },
+  { value: "OS", label: "OS" },
+  { value: "Device", label: "Device" },
+];
+
+const SelectChartType = [
+  { value: "Bar", label: "Bar" },
+  { value: "Pie", label: "Pie" },
+];
+
 const dataOptions = ["Browser", "OS", "Devices"];
 
 function LinkAnalyticPage() {
@@ -26,6 +37,7 @@ function LinkAnalyticPage() {
   const [allStats, setAllStats] = useState<MappedServerResponse>();
   const [infoOption, setInfoOption] = useState<string>(dataOptions[0]);
   const [optionStats, setOptionStats] = useState<Array<ChartValues>>();
+  const [chartType, setChartType] = useState<string>(SelectChartType[0].value);
 
   useEffect(() => {
     const getSlugInfo = async (slug: string) => {
@@ -50,7 +62,7 @@ function LinkAnalyticPage() {
         setOptionStats(allStats?.agents);
       } else if (infoOption === "OS") {
         setOptionStats(allStats?.os);
-      } else if (infoOption === "Devices") {
+      } else if (infoOption === "Device") {
         setOptionStats(allStats?.devices);
       } else {
         setOptionStats([]);
@@ -61,15 +73,34 @@ function LinkAnalyticPage() {
 
   return (
     <div className={styles["container"]}>
-      <h2>{currentSlug}</h2>
-      <p>Total Clicks: {allStats?.totalClicks}</p>
+      <div className={styles["settings"]}>
+        <h2>{currentSlug}</h2>
+        <p>Total Clicks: {allStats?.totalClicks}</p>
+        <div className={styles["option"]}>
+          <p>Info about:</p>
+          <Select
+            defaultValue="Browser"
+            style={{ width: 120 }}
+            onChange={(value) => setInfoOption(value)}
+            options={SelectDataOptions}
+          />
+        </div>
+        <div className={styles["option"]}>
+          <p>Chart:</p>
+          <Select
+            defaultValue="Bar"
+            style={{ width: 120 }}
+            onChange={(value) => setChartType(value)}
+            options={SelectChartType}
+          />
+        </div>
+      </div>
 
-      <Segmented<string>
-        options={dataOptions}
-        onChange={(value) => setInfoOption(value)}
-      ></Segmented>
-
-      {<BarChart data={optionStats || []} />}
+      {chartType === "Bar" ? (
+        <BarChart data={optionStats || []} />
+      ) : chartType === "Pie" ? (
+        <PieChart data={optionStats || []} />
+      ) : null}
     </div>
   );
 }
