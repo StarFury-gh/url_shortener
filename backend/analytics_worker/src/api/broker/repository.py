@@ -18,40 +18,43 @@ class WorkerRepository:
     async def _update_browser_clicks(self, slug: str, browser: str) -> None:
         await self.db.execute(
             """
-            INSERT INTO users_agents AS ua (slug, browser, clicks_count) 
-            VALUES ($1, $2, $3) 
-            ON CONFLICT(slug) 
+            INSERT INTO users_agents AS ua (slug, browser, clicks_count, raw_stat) 
+            VALUES ($1, $2, $3, $4) 
+            ON CONFLICT(raw_stat) 
             DO UPDATE SET clicks_count=ua.clicks_count+1
             """,
             slug,
             browser,
             1,
+            slug + browser,
         )
 
     async def _update_os_clicks(self, slug: str, os: str) -> None:
         await self.db.execute(
             """
-            INSERT INTO users_os AS uo (slug, os, clicks_count)
-            VALUES ($1, $2, $3)
-            ON CONFLICT (slug)
+            INSERT INTO users_os AS uo (slug, os, clicks_count, raw_stat)
+            VALUES ($1, $2, $3, $4)
+            ON CONFLICT (raw_stat)
             DO UPDATE SET clicks_count=uo.clicks_count+1
             """,
             slug,
             os,
             1,
+            slug + os,
         )
 
     async def _update_device_clicks(self, slug, device: str) -> None:
         await self.db.execute(
             """
-            INSERT INTO users_devices AS ud (slug, device_type, clicks_count)
-            VALUES ($1, $2, $3)
-            ON CONFLICT (slug)
+            INSERT INTO users_devices AS ud (slug, device_type, clicks_count, raw_stat)
+            VALUES ($1, $2, $3, $4)
+            ON CONFLICT (raw_stat)
             DO UPDATE SET clicks_count=ud.clicks_count+1
             """,
             slug,
             device,
             1,
+            slug + device,
         )
 
     async def update_agent_stats(
