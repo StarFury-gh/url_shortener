@@ -3,10 +3,10 @@ import { Column } from "@ant-design/charts";
 import styles from "./BarChart.module.css";
 
 interface BarChartProps {
-  data: Array<Stats>;
+  data?: Array<ChartValues>;
 }
 
-interface Stats {
+interface ChartValues {
   name: string;
   value: number;
 }

@@ -10,7 +10,7 @@ interface LinkInfo {
   original_url: string;
 }
 
-function LinkSstatsPage() {
+function LinkStatsPage() {
   const [links, setLinks] = useState<Array<LinkInfo>>([]);
   useEffect(() => {
     const fetchLinks = async () => {
@@ -30,12 +30,16 @@ function LinkSstatsPage() {
   return (
     <div className={styles["container"]}>
       <div className={styles["links"]}>
-        {links.map((link) => (
-          <LinkCard original_url={link.original_url} slug={link.slug} />
-        ))}
+        {links.length !== 0 ? (
+          links.map((link) => (
+            <LinkCard original_url={link.original_url} slug={link.slug} />
+          ))
+        ) : (
+          <p>No links created...</p>
+        )}
       </div>
     </div>
   );
 }
 
-export default LinkSstatsPage;
+export default LinkStatsPage;
