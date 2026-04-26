@@ -25,14 +25,18 @@ class WorkerService:
         return {"slug": slug, "clicked_times": stats.clicked_times}
 
     async def handle_link_redirect(self, msg: ClickInfo) -> None:
+        # Get parsed agent info
         agent_info = parse(msg.agent)
 
+        # Join browser's name and it's version
         browser_version = ".".join(list(map(str, agent_info.browser.version)))
         browser = " ".join([agent_info.browser.family, browser_version])
 
+        # Join os name and it's version
         os_version = ".".join(list(map(str, agent_info.os.version_string)))
         os = " ".join([agent_info.os.family, os_version])
 
+        # Get device family
         device = agent_info.device.family
 
         await self._repo.update_agent_stats(
@@ -40,6 +44,5 @@ class WorkerService:
             browser=browser,
             os=os,
             device=device,
-            raw_agent=str(agent_info),
         )
         await self._repo.inc_clicks_count(slug=msg.slug)
