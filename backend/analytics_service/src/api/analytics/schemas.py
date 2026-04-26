@@ -8,12 +8,22 @@ class Pagination(BaseModel):
 
 class BrowserAgent(BaseModel):
     browser: str
-    device_type: str
+    clicks_count: int
+
+
+class AgentOs(BaseModel):
     os: str
+    clicks_count: int
+
+
+class AgentDevice(BaseModel):
+    device_type: str
     clicks_count: int
 
 
 class FullSlugInfo(BaseModel):
     slug: str
-    clicked_times: int | None
+    clicks_count: int | None
     agents: list[BrowserAgent]
+    os: list[AgentOs]
+    devices: list[AgentDevice]
