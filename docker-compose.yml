@@ -1,5 +1,6 @@
 services:
   users_db:
+    container_name: users_db
     build: ./infra/db/users
     ports:
       - 5432:5432
@@ -9,6 +10,7 @@ services:
       - users_network
 
   analytics_db:
+    container_name: analytics_db
     build: ./infra/db/analytics
     ports:
       - 5433:5432
@@ -19,6 +21,7 @@ services:
       - event_driven
 
   shortener_db:
+    container_name: shortener_db
     build: ./infra/db/shortener
     ports:
       - 5434:5432
@@ -29,6 +32,7 @@ services:
       - event_driven
 
   rabbit:
+    container_name: rabbit
     build: ./infra/rabbitmq
     ports:
       - 5672:5672
@@ -37,6 +41,7 @@ services:
       - event_driven
 
   shortener_service:
+    container_name: shortener_service
     build: ./backend/shortener_service
     ports:
       - 8001:8000
@@ -50,6 +55,7 @@ services:
         condition: service_healthy
 
   analytics_worker:
+    container_name: analytics_worker
     build: ./backend/analytics_worker
     networks:
       - event_driven
@@ -61,6 +67,7 @@ services:
         condition: service_healthy
 
   analytics_service:
+    container_name: analytics_service
     build: ./backend/analytics_service
     ports:
       - 8002:8000
