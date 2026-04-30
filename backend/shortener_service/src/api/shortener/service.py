@@ -17,7 +17,7 @@ class ShortenerService:
         self.repo = repo
 
     async def get_links(self, limit: int = 10, offset: int = 0):
-        links = await self.repo.get_all()
+        links = await self.repo.get_all(limit=limit, offset=offset)
         return {"links": links, "total": len(links)}
 
     async def get_and_redirect(

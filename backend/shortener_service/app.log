@@ -1,0 +1,204 @@
+2026-04-29 08:14:56,923 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:04,389 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:04,537 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:04,687 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:04,820 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:04,951 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:05,086 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:05,208 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:05,341 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:05,480 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:05,616 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:05,757 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:05,884 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:06,045 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:06,164 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:06,336 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:06,494 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:06,619 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:06,773 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:06,918 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:07,064 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:07,192 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:07,358 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:07,499 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:07,665 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:07,791 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:07,936 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:08,076 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:08,217 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:08,339 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:08,495 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:08,645 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:08,786 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:08,928 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:09,078 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:09,212 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:09,357 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:09,489 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:09,673 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:09,914 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:09,999 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:10,082 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:10,217 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:10,298 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:10,476 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:10,702 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:10,780 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:10,872 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:10,951 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,029 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,113 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,190 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,278 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,353 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,436 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,559 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,636 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,739 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,817 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:11,889 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:12,073 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:23,721 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:23,799 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:23,879 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:23,969 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:24,054 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:24,126 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:24,217 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:24,301 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:24,379 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:24,457 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 08:15:24,631 - core.middleware.ratelimiter.middleware - INFO - Blocked: 12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0. Reason: Too many requests
+2026-04-29 10:28:06,637 - aio_pika.robust_connection - DEBUG - Starting connection factory for <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:06,638 - aio_pika.robust_connection - DEBUG - Waiting for connection close event for <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:06,638 - aio_pika.robust_connection - DEBUG - Connection attempt for <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:06,638 - aiormq.connection - DEBUG - Connecting to: amqp://sh_publisher:******@localhost:5672/
+2026-04-29 10:28:06,642 - aio_pika.robust_connection - DEBUG - Connection made on <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:06,643 - aio_pika.connection - DEBUG - Creating AMQP channel for connection: <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:06,643 - aio_pika.connection - DEBUG - Channel created: <aio_pika.robust_channel.RobustChannel object at 0x7ad1ba294980>
+2026-04-29 10:28:06,643 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x06\x00\x14\x00\n\x010\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:06,645 - aiormq.connection - DEBUG - Received frame <Channel.OpenOk object at 0x7ad1ba2ff550> in channel #1 weight=16 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba2f7700>
+2026-04-29 10:28:06,645 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x05\x00U\x00\n\x00\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:06,645 - aiormq.connection - DEBUG - Received frame <Confirm.SelectOk object at 0x7ad1ba2f9d60> in channel #1 weight=12 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba2f7700>
+2026-04-29 10:28:06,646 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x0b\x00<\x00\n\x00\x00\x00\x00\x00\x00\x00\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:06,646 - aiormq.connection - DEBUG - Received frame <Basic.QosOk object at 0x7ad1ba2fac30> in channel #1 weight=12 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba2f7700>
+2026-04-29 10:28:06,646 - aio_pika.exchange - DEBUG - Publishing message with routing key 'links_actions' via exchange <RobustExchange(): auto_delete=False, durable=False, arguments={})>: Message:{'app_id': 'faststream-0.6.7',
+ 'body_size': 45,
+ 'cluster_id': None,
+ 'consumer_tag': None,
+ 'content_encoding': None,
+ 'content_type': 'application/json',
+ 'correlation_id': '1c83e68e-a05c-478e-bbbd-629b6728654b',
+ 'delivery_mode': <DeliveryMode.NOT_PERSISTENT: 1>,
+ 'delivery_tag': None,
+ 'exchange': None,
+ 'expiration': None,
+ 'headers': {},
+ 'message_id': None,
+ 'priority': 0,
+ 'redelivered': None,
+ 'reply_to': None,
+ 'routing_key': None,
+ 'timestamp': datetime.datetime(2026, 4, 29, 7, 28, 6, 646803, tzinfo=datetime.timezone.utc),
+ 'type': 'None',
+ 'user_id': None}
+2026-04-29 10:28:06,647 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x16\x00<\x00(\x00\x00\x00\rlinks_actions\x01\xce\x02\x00\x01\x00\x00\x00\x84\x00<\x00\x00\x00\x00\x00\x00\x00\x00\x00-\xbc\xc8\x10application/json\x00\x00\x00\x00\x01\x00$1c83e68e-a05c-478e-bbbd-629b6728654b 7baf696a3c0d4245b6115d7fe0a43415\x00\x00\x00\x00i\xf1\xb3\x06\x10faststream-0.6.7\xce\x03\x00\x01\x00\x00\x00-{"operation":"created","slug":"b894e98f774e"}\xce', should_close=False, drain_future=<Future pending cb=[FutureStore.__on_task_done.<locals>.remover() at /home/vladimir/url_shortener/backend/shortener_service/.venv/lib/python3.12/site-packages/aiormq/base.py:33, <1 more>, Task.task_wakeup()]>)
+2026-04-29 10:28:06,648 - aiormq.connection - DEBUG - Received frame <Basic.Ack object at 0x7ad1ba406210> in channel #1 weight=21 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba2f7700>
+2026-04-29 10:28:06,648 - aio_pika.channel - DEBUG - Closing channel <aio_pika.robust_channel.RobustChannel object at 0x7ad1ba294980>
+2026-04-29 10:28:06,648 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x0b\x00\x14\x00(\x00\xc8\x00\x00\x00\x00\x00\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:06,648 - aiormq.connection - DEBUG - Received frame <Channel.CloseOk object at 0x7ad1ba31ce30> in channel #1 weight=12 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba2f7700>
+2026-04-29 10:28:06,649 - aiormq.connection - DEBUG - Closing connection <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba2f7700> cause: <class 'asyncio.exceptions.CancelledError'>
+2026-04-29 10:28:06,649 - aiormq.connection - DEBUG - Sending <Connection.Close object at 0x7ad1ba329fe0> to <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba2f7700>
+2026-04-29 10:28:06,649 - aiormq.connection - DEBUG - Writer on connection amqp://sh_publisher:******@localhost:5672/ closed
+2026-04-29 10:28:06,649 - aiormq.connection - DEBUG - Reader exited for <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba2f7700>
+2026-04-29 10:28:06,649 - aiormq.connection - DEBUG - Writer exited for <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba2f7700>
+2026-04-29 10:28:06,649 - aiormq.connection - DEBUG - Closing connection <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba2f7700> cause: CancelledError()
+2026-04-29 10:28:09,720 - aio_pika.robust_connection - DEBUG - Starting connection factory for <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:09,720 - aio_pika.robust_connection - DEBUG - Waiting for connection close event for <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:09,720 - aio_pika.robust_connection - DEBUG - Connection attempt for <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:09,720 - aiormq.connection - DEBUG - Connecting to: amqp://sh_publisher:******@localhost:5672/
+2026-04-29 10:28:09,725 - aio_pika.robust_connection - DEBUG - Connection made on <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:09,725 - aio_pika.connection - DEBUG - Creating AMQP channel for connection: <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:09,726 - aio_pika.connection - DEBUG - Channel created: <aio_pika.robust_channel.RobustChannel object at 0x7ad1ba31d250>
+2026-04-29 10:28:09,726 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x06\x00\x14\x00\n\x010\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:09,727 - aiormq.connection - DEBUG - Received frame <Channel.OpenOk object at 0x7ad1b913a2d0> in channel #1 weight=16 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba3313b0>
+2026-04-29 10:28:09,727 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x05\x00U\x00\n\x00\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:09,727 - aiormq.connection - DEBUG - Received frame <Confirm.SelectOk object at 0x7ad1ba31d940> in channel #1 weight=12 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba3313b0>
+2026-04-29 10:28:09,728 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x0b\x00<\x00\n\x00\x00\x00\x00\x00\x00\x00\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:09,728 - aiormq.connection - DEBUG - Received frame <Basic.QosOk object at 0x7ad1ba31d910> in channel #1 weight=12 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba3313b0>
+2026-04-29 10:28:09,728 - aio_pika.exchange - DEBUG - Publishing message with routing key 'links_actions' via exchange <RobustExchange(): auto_delete=False, durable=False, arguments={})>: Message:{'app_id': 'faststream-0.6.7',
+ 'body_size': 45,
+ 'cluster_id': None,
+ 'consumer_tag': None,
+ 'content_encoding': None,
+ 'content_type': 'application/json',
+ 'correlation_id': '2ae477bd-7095-4a6a-b4ae-ced7e55c67f2',
+ 'delivery_mode': <DeliveryMode.NOT_PERSISTENT: 1>,
+ 'delivery_tag': None,
+ 'exchange': None,
+ 'expiration': None,
+ 'headers': {},
+ 'message_id': None,
+ 'priority': 0,
+ 'redelivered': None,
+ 'reply_to': None,
+ 'routing_key': None,
+ 'timestamp': datetime.datetime(2026, 4, 29, 7, 28, 9, 728919, tzinfo=datetime.timezone.utc),
+ 'type': 'None',
+ 'user_id': None}
+2026-04-29 10:28:09,729 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x16\x00<\x00(\x00\x00\x00\rlinks_actions\x01\xce\x02\x00\x01\x00\x00\x00\x84\x00<\x00\x00\x00\x00\x00\x00\x00\x00\x00-\xbc\xc8\x10application/json\x00\x00\x00\x00\x01\x00$2ae477bd-7095-4a6a-b4ae-ced7e55c67f2 6a8e40cb79be438ca658f55341bf47bb\x00\x00\x00\x00i\xf1\xb3\t\x10faststream-0.6.7\xce\x03\x00\x01\x00\x00\x00-{"operation":"created","slug":"8f661d87f98f"}\xce', should_close=False, drain_future=<Future pending cb=[FutureStore.__on_task_done.<locals>.remover() at /home/vladimir/url_shortener/backend/shortener_service/.venv/lib/python3.12/site-packages/aiormq/base.py:33, <1 more>, Task.task_wakeup()]>)
+2026-04-29 10:28:09,730 - aiormq.connection - DEBUG - Received frame <Basic.Ack object at 0x7ad1ba30dd50> in channel #1 weight=21 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba3313b0>
+2026-04-29 10:28:09,730 - aio_pika.channel - DEBUG - Closing channel <aio_pika.robust_channel.RobustChannel object at 0x7ad1ba31d250>
+2026-04-29 10:28:09,730 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x0b\x00\x14\x00(\x00\xc8\x00\x00\x00\x00\x00\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:09,731 - aiormq.connection - DEBUG - Received frame <Channel.CloseOk object at 0x7ad1ba31d6a0> in channel #1 weight=12 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba3313b0>
+2026-04-29 10:28:09,731 - aiormq.connection - DEBUG - Closing connection <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba3313b0> cause: <class 'asyncio.exceptions.CancelledError'>
+2026-04-29 10:28:09,731 - aiormq.connection - DEBUG - Sending <Connection.Close object at 0x7ad1ba331770> to <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba3313b0>
+2026-04-29 10:28:09,732 - aiormq.connection - DEBUG - Writer on connection amqp://sh_publisher:******@localhost:5672/ closed
+2026-04-29 10:28:09,732 - aiormq.connection - DEBUG - Reader exited for <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba3313b0>
+2026-04-29 10:28:09,732 - aiormq.connection - DEBUG - Writer exited for <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba3313b0>
+2026-04-29 10:28:09,732 - aiormq.connection - DEBUG - Closing connection <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba3313b0> cause: CancelledError()
+2026-04-29 10:28:13,302 - aio_pika.robust_connection - DEBUG - Starting connection factory for <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:13,302 - aio_pika.robust_connection - DEBUG - Waiting for connection close event for <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:13,303 - aio_pika.robust_connection - DEBUG - Connection attempt for <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:13,303 - aiormq.connection - DEBUG - Connecting to: amqp://sh_publisher:******@localhost:5672/
+2026-04-29 10:28:13,307 - aio_pika.robust_connection - DEBUG - Connection made on <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:13,307 - aio_pika.connection - DEBUG - Creating AMQP channel for connection: <RobustConnection: "amqp://sh_publisher:******@localhost:5672/" 0 channels>
+2026-04-29 10:28:13,307 - aio_pika.connection - DEBUG - Channel created: <aio_pika.robust_channel.RobustChannel object at 0x7ad1ba2fac60>
+2026-04-29 10:28:13,307 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x06\x00\x14\x00\n\x010\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:13,308 - aiormq.connection - DEBUG - Received frame <Channel.OpenOk object at 0x7ad1b9139d50> in channel #1 weight=16 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba332080>
+2026-04-29 10:28:13,308 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x05\x00U\x00\n\x00\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:13,309 - aiormq.connection - DEBUG - Received frame <Confirm.SelectOk object at 0x7ad1ba31e900> in channel #1 weight=12 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba332080>
+2026-04-29 10:28:13,309 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x0b\x00<\x00\n\x00\x00\x00\x00\x00\x00\x00\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:13,309 - aiormq.connection - DEBUG - Received frame <Basic.QosOk object at 0x7ad1ba31e6f0> in channel #1 weight=12 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba332080>
+2026-04-29 10:28:13,310 - aio_pika.exchange - DEBUG - Publishing message with routing key 'links_actions' via exchange <RobustExchange(): auto_delete=False, durable=False, arguments={})>: Message:{'app_id': 'faststream-0.6.7',
+ 'body_size': 45,
+ 'cluster_id': None,
+ 'consumer_tag': None,
+ 'content_encoding': None,
+ 'content_type': 'application/json',
+ 'correlation_id': 'e7833fd4-2cf8-48db-b832-7609dd2b74ea',
+ 'delivery_mode': <DeliveryMode.NOT_PERSISTENT: 1>,
+ 'delivery_tag': None,
+ 'exchange': None,
+ 'expiration': None,
+ 'headers': {},
+ 'message_id': None,
+ 'priority': 0,
+ 'redelivered': None,
+ 'reply_to': None,
+ 'routing_key': None,
+ 'timestamp': datetime.datetime(2026, 4, 29, 7, 28, 13, 310195, tzinfo=datetime.timezone.utc),
+ 'type': 'None',
+ 'user_id': None}
+2026-04-29 10:28:13,310 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x16\x00<\x00(\x00\x00\x00\rlinks_actions\x01\xce\x02\x00\x01\x00\x00\x00\x84\x00<\x00\x00\x00\x00\x00\x00\x00\x00\x00-\xbc\xc8\x10application/json\x00\x00\x00\x00\x01\x00$e7833fd4-2cf8-48db-b832-7609dd2b74ea f6d0a1daa62b410a966078588d2b29c5\x00\x00\x00\x00i\xf1\xb3\r\x10faststream-0.6.7\xce\x03\x00\x01\x00\x00\x00-{"operation":"created","slug":"236e012be292"}\xce', should_close=False, drain_future=<Future pending cb=[FutureStore.__on_task_done.<locals>.remover() at /home/vladimir/url_shortener/backend/shortener_service/.venv/lib/python3.12/site-packages/aiormq/base.py:33, <1 more>, Task.task_wakeup()]>)
+2026-04-29 10:28:13,311 - aiormq.connection - DEBUG - Received frame <Basic.Ack object at 0x7ad1ba30e290> in channel #1 weight=21 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba332080>
+2026-04-29 10:28:13,311 - aio_pika.channel - DEBUG - Closing channel <aio_pika.robust_channel.RobustChannel object at 0x7ad1ba2fac60>
+2026-04-29 10:28:13,311 - aiormq.connection - DEBUG - Prepare to send ChannelFrame(payload=b'\x01\x00\x01\x00\x00\x00\x0b\x00\x14\x00(\x00\xc8\x00\x00\x00\x00\x00\xce', should_close=False, drain_future=None)
+2026-04-29 10:28:13,312 - aiormq.connection - DEBUG - Received frame <Channel.CloseOk object at 0x7ad1ba31e900> in channel #1 weight=12 on <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba332080>
+2026-04-29 10:28:13,312 - aiormq.connection - DEBUG - Closing connection <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba332080> cause: <class 'asyncio.exceptions.CancelledError'>
+2026-04-29 10:28:13,312 - aiormq.connection - DEBUG - Sending <Connection.Close object at 0x7ad1ba2f7d90> to <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba332080>
+2026-04-29 10:28:13,312 - aiormq.connection - DEBUG - Writer on connection amqp://sh_publisher:******@localhost:5672/ closed
+2026-04-29 10:28:13,313 - aiormq.connection - DEBUG - Reader exited for <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba332080>
+2026-04-29 10:28:13,313 - aiormq.connection - DEBUG - Writer exited for <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba332080>
+2026-04-29 10:28:13,313 - aiormq.connection - DEBUG - Closing connection <Connection: "amqp://sh_publisher:******@localhost:5672/" at 0x7ad1ba332080> cause: CancelledError()

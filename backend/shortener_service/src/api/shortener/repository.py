@@ -1,6 +1,6 @@
 from asyncpg import Connection
 from typing import List
-from .schemas import CreateLinkDTO, Link
+from .schemas import Link
 
 
 class ShortenerRepository:
@@ -18,9 +18,11 @@ class ShortenerRepository:
             return result
         return None
 
-    async def get_all(self) -> List[Link]:
+    async def get_all(self, limit: int, offset: int) -> List[Link]:
         """Return all shortified urls"""
-        records = await self.db.fetch("SELECT slug, origin FROM short_urls")
+        records = await self.db.fetch(
+            "SELECT slug, origin FROM short_urls LIMIT $1 OFFSET $2", limit, offset
+        )
         result = [dict(record) for record in records]
         result = [
             Link(slug=link.get("slug"), original_url=link.get("origin"))  # type: ignore
