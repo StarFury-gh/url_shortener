@@ -40,6 +40,11 @@ services:
     networks:
       - event_driven
 
+  redis_cache:
+    build: ./infra/redis
+    networks:
+      - shortener_network
+      
   shortener_service:
     container_name: shortener_service
     build: ./backend/shortener_service
