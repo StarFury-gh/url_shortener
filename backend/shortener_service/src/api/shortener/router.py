@@ -5,6 +5,8 @@ from .service import ShortenerService
 from .schemas import CreateLinkDTO, Pagination
 
 from core.rabbit import get_publisher, RabbitPublisher
+from core.cache.redis import get_redis
+from core.logger import get_logger
 
 sh_router = APIRouter(prefix="/sh", tags=["shortener"])
 
@@ -31,8 +33,12 @@ async def create_short_link(
     body: CreateLinkDTO,
     service: ShortenerService = Depends(get_service),
     broker=Depends(get_publisher),
+    redis=Depends(get_redis),
+    app_logger=Depends(get_logger),
 ):
-    return await service.create_link(body, broker=broker)
+    return await service.create_link(
+        body, broker=broker, redis=redis, app_logger=app_logger
+    )
 
 
 @sh_router.delete("/delete/{slug}")
