@@ -32,8 +32,8 @@ function MainPage() {
         const resultUrl = SH_API_URL + "/sh/" + slug;
         setShortUrl(resultUrl);
       } else {
-        const message = await response.text();
-        setError(message);
+        const message = await response.json();
+        setError(message.detail);
         console.log(response);
       }
     } catch (e) {

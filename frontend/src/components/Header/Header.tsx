@@ -1,18 +1,43 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "antd";
 
 import styles from "./Header.module.css";
 
-function Header() {
+interface UserInfo {
+  id: number;
+  email: string;
+}
+
+interface AuthState {
+  auth: boolean;
+  user: UserInfo | null;
+}
+
+interface HeaderProps {
+  auth: AuthState;
+}
+
+function Header(props: HeaderProps) {
+  const navigate = useNavigate();
+
   return (
     <header>
       <div className={styles["links"]}>
-        <Button type="link" size="large">
-          <Link to="/">Shortify</Link>
+        <Button type="link" size="large" onClick={() => navigate("/")}>
+          Shortify
         </Button>
-        <Button type="link" size="large">
-          <Link to="/analytics">Analytics</Link>
+        <Button type="link" size="large" onClick={() => navigate("/analytics")}>
+          Analytics
         </Button>
+        {props.auth.auth ? (
+          <Button type="link" size="large" onClick={() => navigate("/login")}>
+            Profile
+          </Button>
+        ) : (
+          <Button type="link" size="large" onClick={() => navigate("/")}>
+            Login
+          </Button>
+        )}
       </div>
     </header>
   );
