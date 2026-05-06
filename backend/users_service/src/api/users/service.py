@@ -4,7 +4,7 @@ from hmac import compare_digest
 
 from asyncpg.exceptions import UniqueViolationError
 
-from core.tokens import encode_token
+from core.tokens import encode_token, decode_token
 
 from .repository import UsersRepository
 from .schemas import UserLogin, RegisterUser
@@ -58,4 +58,14 @@ class UsersService:
         except UniqueViolationError:
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT, detail="User already exists"
+            )
+
+    async def auth_user(self, auth: str | None) -> dict:
+        if auth:
+            info = decode_token(auth)
+            return {"status": True, **info}
+        else:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Authorization token required",
             )

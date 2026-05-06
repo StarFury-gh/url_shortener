@@ -23,3 +23,8 @@ class User(BaseUser):
 
 class GetUsersResponse(BaseModel):
     users: List[User]
+
+
+class AuthInfo(BaseModel):
+    id: int
+    email: str
