@@ -1,14 +1,4 @@
 services:
-  users_db:
-    container_name: users_db
-    build: ./infra/db/users
-    ports:
-      - 5432:5432
-    volumes:
-      - users_data:/var/lib/postgresql
-    networks:
-      - users_network
-
   analytics_db:
     container_name: analytics_db
     build: ./infra/db/analytics
@@ -51,9 +41,9 @@ services:
     ports:
       - 8003:8000
     networks:
-      - users_network
+      - shortener_network
     depends_on:
-      users_db:
+      shortener_db:
         condition: service_healthy
 
   shortener_service:
@@ -95,8 +85,6 @@ services:
         condition: service_healthy
 
 networks:
-  users_network:
-    driver: bridge
   analytics_network:
     driver: bridge
   shortener_network:
@@ -105,6 +93,5 @@ networks:
     driver: bridge
 
 volumes:
-  users_data:
   analytics_data:
   shortener_data:
