@@ -46,9 +46,7 @@ function LinkAnalyticPage() {
       if (response.ok) {
         const data: ServerResponse = await response.json();
 
-        console.log("server_response:", data);
         const mapped: MappedServerResponse = await MapServerResponse(data);
-        console.log("mapped:", mapped);
 
         setAllStats(mapped);
       }

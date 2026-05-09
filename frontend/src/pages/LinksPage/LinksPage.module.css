@@ -3,12 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem 2rem;
 }
 
 .links {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  padding: 4px 12px;
+    width: 100%;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
