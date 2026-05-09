@@ -3,7 +3,7 @@ from fastapi import Depends
 
 from logging import Logger
 
-from core.logging import get_logger
+from core.logger import get_logger
 
 from core.config import cfg_obj
 
