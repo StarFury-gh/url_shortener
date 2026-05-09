@@ -55,7 +55,9 @@ class UsersService:
         user = RegisterUser(email=body.email, password=hashed_password)
         try:
             result = await self.repo.create(user)
-            return {"status": True, "user_id": result}
+            login_response = await self.login(body)
+            token = login_response.get("access_token")
+            return {"status": True, "user_id": result, "access_token": token}
         except UniqueViolationError:
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT, detail="User already exists"
