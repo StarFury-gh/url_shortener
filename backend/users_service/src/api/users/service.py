@@ -3,6 +3,7 @@ from hashlib import sha256
 from hmac import compare_digest
 
 from asyncpg.exceptions import UniqueViolationError
+from jwt.exceptions import InvalidSignatureError
 
 from core.tokens import encode_token, decode_token
 
@@ -62,8 +63,13 @@ class UsersService:
 
     async def auth_user(self, auth: str | None) -> dict:
         if auth:
-            info = decode_token(auth)
-            return {"status": True, **info}
+            try:
+                info = decode_token(auth)
+                return {"status": True, **info}
+            except InvalidSignatureError:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid token"
+                )
         else:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
