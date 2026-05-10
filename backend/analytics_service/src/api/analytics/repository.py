@@ -107,18 +107,19 @@ class AnalyticsRepository:
         Returns:
             List[BrowserAgent]: list of popular agents
         """
-        records = await self.db.fetch(
-            """
+        records = await self.db.fetch("""
             SELECT 
             browser,
             SUM(clicks_count) AS total_clicks
             FROM users_agents
             GROUP BY browser
             ORDER BY total_clicks DESC;
-            """
-        )
+            """)
         if records is None:
             return []
 
         result = [dict(record) for record in records]
         return result
+
+    async def check_ownership(self, slug: str, user_id: int) -> bool:
+        record = await self.db.fetchrow("SELECT origin FROM ")

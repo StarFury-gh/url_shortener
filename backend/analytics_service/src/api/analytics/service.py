@@ -8,7 +8,8 @@ class AnalyticsService:
     def __init__(self, repo: AnalyticsRepository):
         self._repo = repo
 
-    async def get_full_slug_info(self, slug: str) -> FullSlugInfo:
+    async def get_full_slug_info(self, slug: str, auth: dict) -> FullSlugInfo:
+        is_owner = await self._repo.check_ownership(slug, auth.get("id"))
         info = await self._repo.get_full_slug_info(slug)
         if info.clicks_count is None:
             raise HTTPException(
