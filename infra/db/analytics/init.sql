@@ -1,7 +1,8 @@
 -- Переходы по ссылкам
 CREATE TABLE clicks (
     slug VARCHAR(12) PRIMARY KEY,
-    clicks_count INT
+    clicks_count INT,
+    author_id INT
 );
 
 -- Интернет браузеры пользователей

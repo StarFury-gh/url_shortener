@@ -31,6 +31,8 @@ services:
       - event_driven
 
   redis_cache:
+    ports:
+      - 6379:6379
     build: ./infra/redis
     networks:
       - shortener_network
