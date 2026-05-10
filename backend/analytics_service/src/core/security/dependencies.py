@@ -7,7 +7,7 @@ from core.config import cfg_obj
 
 
 async def require_auth(
-    authorization=Header(None, alias="Authorization"), logger=Depends(get_logger())
+    authorization=Header(None, alias="Authorization"), logger=Depends(get_logger)
 ):
     if authorization is None:
         raise HTTPException(
@@ -16,7 +16,7 @@ async def require_auth(
         )
 
     async with ClientSession() as session:
-        url = cfg_obj.USERS_SERVICE + "users/auth"
+        url = f"{cfg_obj.USERS_SERVICE}/users/auth"
         headers = {"Authorization": authorization, "Content-type": "application/json"}
         async with session.get(url, headers=headers) as response:
             if response.status:
