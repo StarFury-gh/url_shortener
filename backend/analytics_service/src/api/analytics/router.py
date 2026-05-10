@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends
 
+from core.security import require_auth
+
 from .dependencies import get_service
 from .service import AnalyticsService
 
@@ -12,5 +14,9 @@ async def get_popular_agents(service: AnalyticsService = Depends(get_service)):
 
 
 @an_router.get("/{slug}")
-async def get_slug_stats(slug: str, service: AnalyticsService = Depends(get_service)):
-    return await service.get_full_slug_info(slug)
+async def get_slug_stats(
+    slug: str,
+    service: AnalyticsService = Depends(get_service),
+    auth: dict | None = Depends(require_auth),
+):
+    return await service.get_full_slug_info(slug, auth=auth)

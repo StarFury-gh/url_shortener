@@ -17,7 +17,10 @@ function App() {
       <Header auth={auth} />
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
-        <Route path="/analytics" element={<LinksPage />}></Route>
+        <Route
+          path="/analytics"
+          element={<LinksPage auth={auth.auth} userId={auth.user?.id} />}
+        ></Route>
         <Route path="/analytics/:slug" element={<LinkAnalyticPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/register" element={<RegisterPage />}></Route>

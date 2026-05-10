@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import LinkCard from "../../components/LinkCard";
+import { AuthMessage } from "../../components";
 
 import { SH_API_URL } from "../../constants";
 import styles from "./LinksPage.module.css";
@@ -10,7 +11,12 @@ interface LinkInfo {
   original_url: string;
 }
 
-function LinkStatsPage() {
+interface LinksPageProps {
+  auth: boolean;
+  userId?: number;
+}
+
+function LinkStatsPage(props: LinksPageProps) {
   const [links, setLinks] = useState<Array<LinkInfo>>([]);
   useEffect(() => {
     const fetchLinks = async () => {
@@ -29,15 +35,23 @@ function LinkStatsPage() {
   }, []);
   return (
     <div className={styles["container"]}>
-      <div className={styles["links"]}>
-        {links.length !== 0 ? (
-          links.map((link) => (
-            <LinkCard original_url={link.original_url} slug={link.slug} />
-          ))
-        ) : (
-          <p>No links created...</p>
-        )}
-      </div>
+      {props.auth ? (
+        <div className={styles["links"]}>
+          {links.length !== 0 ? (
+            links.map((link) => (
+              <LinkCard
+                key={link.slug}
+                original_url={link.original_url}
+                slug={link.slug}
+              />
+            ))
+          ) : (
+            <p>No links created...</p>
+          )}
+        </div>
+      ) : (
+        <AuthMessage />
+      )}
     </div>
   );
 }

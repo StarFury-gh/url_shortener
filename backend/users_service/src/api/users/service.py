@@ -3,6 +3,7 @@ from hashlib import sha256
 from hmac import compare_digest
 
 from asyncpg.exceptions import UniqueViolationError
+from jwt.exceptions import InvalidSignatureError
 
 from core.tokens import encode_token, decode_token
 
@@ -54,7 +55,9 @@ class UsersService:
         user = RegisterUser(email=body.email, password=hashed_password)
         try:
             result = await self.repo.create(user)
-            return {"status": True, "user_id": result}
+            login_response = await self.login(body)
+            token = login_response.get("access_token")
+            return {"status": True, "user_id": result, "access_token": token}
         except UniqueViolationError:
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT, detail="User already exists"
@@ -62,8 +65,13 @@ class UsersService:
 
     async def auth_user(self, auth: str | None) -> dict:
         if auth:
-            info = decode_token(auth)
-            return {"status": True, **info}
+            try:
+                info = decode_token(auth)
+                return {"status": True, **info}
+            except InvalidSignatureError:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid token"
+                )
         else:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,

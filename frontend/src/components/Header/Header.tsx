@@ -30,11 +30,11 @@ function Header(props: HeaderProps) {
           Analytics
         </Button>
         {props.auth.auth ? (
-          <Button type="link" size="large" onClick={() => navigate("/login")}>
+          <Button type="link" size="large" onClick={() => navigate("/profile")}>
             Profile
           </Button>
         ) : (
-          <Button type="link" size="large" onClick={() => navigate("/")}>
+          <Button type="link" size="large" onClick={() => navigate("/login")}>
             Login
           </Button>
         )}

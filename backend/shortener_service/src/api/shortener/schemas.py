@@ -23,3 +23,8 @@ class RequestInfo(BaseModel):
 
 class RedirectRequestInfo(RequestInfo):
     slug: str
+
+
+class AuthUserResponse(BaseModel):
+    id: int
+    email: str

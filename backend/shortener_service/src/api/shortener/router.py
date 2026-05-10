@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 
-from .dependencies import get_service, get_request_info
+from .dependencies import get_service, get_request_info, get_auth
 from .service import ShortenerService
-from .schemas import CreateLinkDTO, Pagination
+from .schemas import CreateLinkDTO, Pagination, AuthUserResponse
 
 from core.rabbit import get_publisher, RabbitPublisher
 from core.cache.redis import get_redis
@@ -32,12 +32,13 @@ async def get_and_redirect(
 async def create_short_link(
     body: CreateLinkDTO,
     service: ShortenerService = Depends(get_service),
+    auth: AuthUserResponse = Depends(get_auth),
     broker=Depends(get_publisher),
     redis=Depends(get_redis),
     app_logger=Depends(get_logger),
 ):
     return await service.create_link(
-        body, broker=broker, redis=redis, app_logger=app_logger
+        body, broker=broker, redis=redis, app_logger=app_logger, auth=auth
     )
 
 

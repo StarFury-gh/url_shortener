@@ -12,7 +12,7 @@ users_router = APIRouter(prefix="/users", tags=["users"])
 @users_router.get("/auth")
 async def auth_user(
     service: UsersService = Depends(get_service),
-    authorization: str = Header(None),
+    authorization: str = Header(None, alias="Authorization"),
 ):
     return await service.auth_user(auth=authorization)
 
@@ -37,8 +37,3 @@ async def register_user(
     body: RegisterUser, service: UsersService = Depends(get_service)
 ):
     return await service.register(body)
-
-
-@users_router.delete("/delete")
-async def delete_user(id: int = Query(...), admin=Depends(require_admin)):
-    return f"Should delete user #{id}"
