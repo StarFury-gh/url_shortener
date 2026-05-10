@@ -65,10 +65,13 @@ class WorkerRepository:
         await self._update_device_clicks(slug, device)
         await self._update_os_clicks(slug, os)
 
-    async def create_link_stats(self, slug: str) -> None:
+    async def create_link_stats(self, slug: str, author: int | None) -> None:
         """Init slug counter"""
         await self.db.execute(
-            "INSERT INTO clicks (slug, clicks_count) VALUES ($1, $2)", slug, 0
+            "INSERT INTO clicks (slug, clicks_count, author_id) VALUES ($1, $2, $3)",
+            slug,
+            0,
+            author,
         )
 
     async def inc_clicks_count(self, slug: str) -> None:

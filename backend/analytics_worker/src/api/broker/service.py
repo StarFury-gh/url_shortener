@@ -12,7 +12,7 @@ class WorkerService:
 
     async def handle_link_operation(self, message: LinkAction) -> None:
         if message.operation == "created":
-            await self._repo.create_link_stats(message.slug)
+            await self._repo.create_link_stats(message.slug, message.author)
         elif message.operation == "deleted":
             await self._repo.delete_link_stats(message.slug)
 

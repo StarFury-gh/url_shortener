@@ -22,7 +22,7 @@ async def handle_sh_click(
 ):
     msg = ClickInfo(**message)
     await service.handle_link_redirect(msg)
-    logger.info(f"Redirected by shortified link with slug: {msg.slug}")
+    logger.info(f"Redirected by short link with slug: {msg.slug}")
     return
 
 
@@ -34,5 +34,7 @@ async def handle_link_action(
 ):
     msg = LinkAction(**message)
     await service.handle_link_operation(msg)
-    logger.info(f"Handled operation '{msg.operation}' with slug: '{msg.slug}'")
+    logger.info(
+        f"Handled operation '{msg.operation}' with slug: '{msg.slug}' and author_id: {msg.author}"
+    )
     return

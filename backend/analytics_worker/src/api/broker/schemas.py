@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 
 class BrowserAgent(BaseModel):
@@ -16,6 +17,7 @@ class ClickInfo(BaseModel):
 class LinkAction(BaseModel):
     operation: str
     slug: str
+    author: Optional[int]
 
 
 class ClicksCount(BaseModel):
