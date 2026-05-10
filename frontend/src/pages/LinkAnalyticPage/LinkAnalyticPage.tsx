@@ -6,7 +6,7 @@ import { Select } from "antd";
 import styles from "./LinkAnalyticPage.module.css";
 
 import { BarChart, PieChart } from "../../components/charts/";
-import { AN_API_URL } from "../../constants";
+import { AN_API_URL, ACCESS_TOKEN } from "../../constants";
 
 import MapServerResponse from "../../utils/analytics";
 import type {
@@ -42,7 +42,12 @@ function LinkAnalyticPage() {
   useEffect(() => {
     const getSlugInfo = async (slug: string) => {
       const url = AN_API_URL + "/analytics/" + slug;
-      const response = await fetch(url);
+      const token = localStorage.getItem(ACCESS_TOKEN);
+      const response = await fetch(url, {
+        headers: {
+          Authorization: token || "",
+        },
+      });
       if (response.ok) {
         const data: ServerResponse = await response.json();
 

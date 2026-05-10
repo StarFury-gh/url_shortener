@@ -4,7 +4,7 @@ import { Input, Button } from "antd";
 import CopyBtn from "../../components/CopyBtn";
 
 import styles from "./MainPage.module.css";
-import { SH_API_URL } from "../../constants";
+import { ACCESS_TOKEN, SH_API_URL } from "../../constants";
 
 function MainPage() {
   const [longUrl, setLongUrl] = useState<string>("");
@@ -18,11 +18,13 @@ function MainPage() {
     try {
       const url = SH_API_URL + "/sh/create";
       const body = JSON.stringify({ original_url: longUrl });
+      const jwt = localStorage.getItem(ACCESS_TOKEN);
       const response = await fetch(url, {
         method: "POST",
         body,
         headers: {
           "Content-Type": "application/json",
+          Authorization: jwt || "",
         },
       });
       if (response.ok) {
