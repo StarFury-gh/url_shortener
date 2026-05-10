@@ -30,10 +30,13 @@ class ShortenerRepository:
         ]
         return result
 
-    async def create(self, slug: str, original_url: str) -> None:
-        """Insert new shortified url to db"""
+    async def create(self, slug: str, original_url: str, author_id: int | None) -> None:
+        """Insert new short url to db"""
         await self.db.execute(
-            "INSERT INTO short_urls (slug, origin) VALUES ($1, $2)", slug, original_url
+            "INSERT INTO short_urls (slug, origin, author_id) VALUES ($1, $2, $3)",
+            slug,
+            original_url,
+            author_id,
         )
 
     async def delete(self, slug: str) -> str | None:

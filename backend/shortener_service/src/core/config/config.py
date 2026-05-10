@@ -24,5 +24,7 @@ class Config:
         self.REDIS_USER = getenv("REDIS_USER")
         self.REDIS_DSN = f"redis://{self.REDIS_HOST}:{self.REDIS_PORT}@{self.REDIS_USER}:{self.REDIS_PASSWORD}"
 
+        self.USERS_SERVICE = getenv("USERS_SERVICE")
+
 
 cfg_obj = Config()

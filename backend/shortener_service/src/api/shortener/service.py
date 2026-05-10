@@ -54,19 +54,19 @@ class ShortenerService:
                 )
 
             original_url = body.original_url.strip("/")
-            # Get previuos generated slug from Redis
+            # Get previous generated slug from Redis
             prev_slug_bytes = await redis.get(constants.REDIS_SLUG_KEY)
             # If it is the first request, we will get None
             if prev_slug_bytes is None:
                 prev_slug = prev_slug_bytes
-            # Else, we get raw str, ecnode it to utf-8
+            # Else, we get raw str, encode it to utf-8
             else:
                 prev_slug = prev_slug_bytes.decode("utf-8")
 
             # Generate new slug using previous
             slug = await generate_new_slug(prev_slug=prev_slug)
             # Check if slug already exists
-            # TODO: remove this
+            # TODO: use this only for auth users
             link = await self.repo.get(slug)
 
             app_logger.info(
@@ -74,11 +74,20 @@ class ShortenerService:
             )
 
             if not link:
-                await self.repo.create(original_url=original_url, slug=slug)
+
+                if auth is None:
+                    auth_id = None
+                else:
+                    auth_id = auth.id
+
+                await self.repo.create(
+                    original_url=original_url, slug=slug, author_id=auth_id
+                )
                 # Send message to another microservice: "User created new short link,
                 # please, create record about this in analytics db"
                 await broker.publish(
-                    {"operation": "created", "slug": slug}, queue="links_actions"
+                    {"operation": "created", "slug": slug, "author": auth_id},
+                    queue="links_actions",
                 )
 
             # Save new slug to the Redis
