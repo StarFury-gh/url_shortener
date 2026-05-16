@@ -122,4 +122,9 @@ class AnalyticsRepository:
         return result
 
     async def check_ownership(self, slug: str, user_id: int) -> bool:
-        record = await self.db.fetchrow("SELECT origin FROM ")
+        record = await self.db.fetchrow(
+            "SELECT slug FROM clicks WHERE author_id=$1", user_id
+        )
+        if record is not None:
+            return True
+        return False

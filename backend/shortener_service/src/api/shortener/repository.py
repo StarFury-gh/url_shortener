@@ -18,10 +18,13 @@ class ShortenerRepository:
             return result
         return None
 
-    async def get_all(self, limit: int, offset: int) -> List[Link]:
+    async def get_all(self, limit: int, offset: int, author_id: int) -> List[Link]:
         """Return all shortified urls"""
         records = await self.db.fetch(
-            "SELECT slug, origin FROM short_urls LIMIT $1 OFFSET $2", limit, offset
+            "SELECT slug, origin FROM short_urls WHERE author_id=$1 LIMIT $2 OFFSET $3",
+            author_id,
+            limit,
+            offset,
         )
         result = [dict(record) for record in records]
         result = [

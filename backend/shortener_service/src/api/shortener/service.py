@@ -18,8 +18,17 @@ class ShortenerService:
     def __init__(self, repo: ShortenerRepository) -> None:
         self.repo = repo
 
-    async def get_links(self, limit: int = 10, offset: int = 0):
-        links = await self.repo.get_all(limit=limit, offset=offset)
+    async def get_links(
+        self,
+        auth: AuthUserResponse | None,
+        limit: int = 10,
+        offset: int = 0,
+    ):
+        if auth is None:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN, detail="Forbidden for you"
+            )
+        links = await self.repo.get_all(limit=limit, offset=offset, author_id=auth.id)
         return {"links": links, "total": len(links)}
 
     async def get_and_redirect(

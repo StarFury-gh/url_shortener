@@ -13,9 +13,13 @@ sh_router = APIRouter(prefix="/sh", tags=["shortener"])
 
 @sh_router.get("/")
 async def get_all(
-    pagination=Depends(Pagination), service: ShortenerService = Depends(get_service)
+    pagination=Depends(Pagination),
+    service: ShortenerService = Depends(get_service),
+    auth=Depends(get_auth),
 ):
-    return await service.get_links(limit=pagination.limit, offset=pagination.offset)
+    return await service.get_links(
+        limit=pagination.limit, offset=pagination.offset, auth=auth
+    )
 
 
 @sh_router.get("/{slug}")
