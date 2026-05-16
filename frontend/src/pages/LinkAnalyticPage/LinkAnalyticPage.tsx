@@ -5,6 +5,7 @@ import { Select } from "antd";
 
 import styles from "./LinkAnalyticPage.module.css";
 
+import { AuthMessage } from "../../components";
 import { BarChart, PieChart } from "../../components/charts/";
 import { AN_API_URL, ACCESS_TOKEN } from "../../constants";
 
@@ -30,33 +31,46 @@ const SelectChartType = [
   { value: "Pie", label: "Pie" },
 ];
 
+interface AnalyticsPageProps {
+  auth: boolean;
+}
+
 const dataOptions = ["Browser", "OS", "Devices"];
 
-function LinkAnalyticPage() {
+function LinkAnalyticPage(props: AnalyticsPageProps) {
   const currentSlug = useParams().slug || "";
   const [allStats, setAllStats] = useState<MappedServerResponse>();
   const [infoOption, setInfoOption] = useState<string>(dataOptions[0]);
   const [optionStats, setOptionStats] = useState<Array<ChartValues>>();
   const [chartType, setChartType] = useState<string>(SelectChartType[0].value);
 
+  const chartComponents: Record<string, React.ElementType<any>> = {
+    Bar: BarChart,
+    Pie: PieChart,
+  };
+
+  const ChartComponent = chartComponents[chartType];
+
   useEffect(() => {
-    const getSlugInfo = async (slug: string) => {
-      const url = AN_API_URL + "/analytics/" + slug;
-      const token = localStorage.getItem(ACCESS_TOKEN);
-      const response = await fetch(url, {
-        headers: {
-          Authorization: token || "",
-        },
-      });
-      if (response.ok) {
-        const data: ServerResponse = await response.json();
+    if (props.auth) {
+      const getSlugInfo = async (slug: string) => {
+        const url = AN_API_URL + "/analytics/" + slug;
+        const token = localStorage.getItem(ACCESS_TOKEN);
+        const response = await fetch(url, {
+          headers: {
+            Authorization: token || "",
+          },
+        });
+        if (response.ok) {
+          const data: ServerResponse = await response.json();
 
-        const mapped: MappedServerResponse = await MapServerResponse(data);
+          const mapped: MappedServerResponse = await MapServerResponse(data);
 
-        setAllStats(mapped);
-      }
-    };
-    getSlugInfo(currentSlug);
+          setAllStats(mapped);
+        }
+      };
+      getSlugInfo(currentSlug);
+    }
   }, [currentSlug]);
 
   useEffect(() => {
@@ -76,34 +90,35 @@ function LinkAnalyticPage() {
 
   return (
     <div className={styles["container"]}>
-      <div className={styles["settings"]}>
-        <h2>{currentSlug}</h2>
-        <p>Total Clicks: {allStats?.totalClicks}</p>
-        <div className={styles["option"]}>
-          <p>Info about:</p>
-          <Select
-            defaultValue="Browser"
-            style={{ width: 120 }}
-            onChange={(value) => setInfoOption(value)}
-            options={SelectDataOptions}
-          />
-        </div>
-        <div className={styles["option"]}>
-          <p>Chart:</p>
-          <Select
-            defaultValue="Bar"
-            style={{ width: 120 }}
-            onChange={(value) => setChartType(value)}
-            options={SelectChartType}
-          />
-        </div>
-      </div>
-
-      {chartType === "Bar" ? (
-        <BarChart data={optionStats || []} />
-      ) : chartType === "Pie" ? (
-        <PieChart data={optionStats || []} />
-      ) : null}
+      {props.auth ? (
+        <>
+          <div className={styles["settings"]}>
+            <h2>{currentSlug}</h2>
+            <p>Total Clicks: {allStats?.totalClicks}</p>
+            <div className={styles["option"]}>
+              <p>Info about:</p>
+              <Select
+                defaultValue="Browser"
+                style={{ width: 120 }}
+                onChange={(value) => setInfoOption(value)}
+                options={SelectDataOptions}
+              />
+            </div>
+            <div className={styles["option"]}>
+              <p>Chart:</p>
+              <Select
+                defaultValue="Bar"
+                style={{ width: 120 }}
+                onChange={(value) => setChartType(value)}
+                options={SelectChartType}
+              />
+            </div>
+          </div>
+          <ChartComponent data={optionStats || []} />
+        </>
+      ) : (
+        <AuthMessage />
+      )}
     </div>
   );
 }
