@@ -44,7 +44,7 @@ function LinkAnalyticPage(props: AnalyticsPageProps) {
   const [optionStats, setOptionStats] = useState<Array<ChartValues>>();
   const [chartType, setChartType] = useState<string>(SelectChartType[0].value);
 
-  const chartComponents: Record<string, React.ElementType<any>> = {
+  const chartComponents: Record<string, React.ElementType> = {
     Bar: BarChart,
     Pie: PieChart,
   };
@@ -71,7 +71,7 @@ function LinkAnalyticPage(props: AnalyticsPageProps) {
       };
       getSlugInfo(currentSlug);
     }
-  }, [currentSlug]);
+  }, [currentSlug, props.auth]);
 
   useEffect(() => {
     const handleOptionChange = () => {

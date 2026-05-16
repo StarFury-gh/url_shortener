@@ -30,7 +30,10 @@ function App() {
             path="/analytics"
             element={<LinksPage auth={auth.auth} userId={auth.user?.id} />}
           ></Route>
-          <Route path="/analytics/:slug" element={<LinkAnalyticPage />}></Route>
+          <Route
+            path="/analytics/:slug"
+            element={<LinkAnalyticPage auth={auth.auth} />}
+          ></Route>
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
           <Route
