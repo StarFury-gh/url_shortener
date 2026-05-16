@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import LinkCard from "../../components/LinkCard";
 import { AuthMessage } from "../../components";
 
-import { SH_API_URL } from "../../constants";
+import { SH_API_URL, ACCESS_TOKEN } from "../../constants";
 import styles from "./LinksPage.module.css";
 
 interface LinkInfo {
@@ -20,15 +20,22 @@ function LinkStatsPage(props: LinksPageProps) {
   const [links, setLinks] = useState<Array<LinkInfo>>([]);
   useEffect(() => {
     const fetchLinks = async () => {
-      try {
-        const url = SH_API_URL + "/sh/";
-        const response = await fetch(url);
-        if (response.ok) {
-          const data = await response.json();
-          setLinks(data.links);
+      if (props.auth) {
+        try {
+          const url = SH_API_URL + "/sh/";
+          const token = localStorage.getItem(ACCESS_TOKEN);
+          const response = await fetch(url, {
+            headers: {
+              Authorization: token || "",
+            },
+          });
+          if (response.ok) {
+            const data = await response.json();
+            setLinks(data.links);
+          }
+        } catch (e) {
+          console.error("Error:", e);
         }
-      } catch (e) {
-        console.error("Error:", e);
       }
     };
     fetchLinks();
