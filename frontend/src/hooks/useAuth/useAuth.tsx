@@ -37,7 +37,7 @@ function useAuth(): AuthState {
           return;
         }
 
-        const response = await fetch(`${US_API_URL}/users/auth/`, {
+        const response = await fetch(`${US_API_URL}/users/auth`, {
           method: "GET",
           headers: {
             Authorization: token,

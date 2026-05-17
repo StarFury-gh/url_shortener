@@ -39,7 +39,7 @@ function LoginPage() {
     if (response.ok) {
       const data: AuthServerResponse = await response.json();
       localStorage.setItem(ACCESS_TOKEN, data.access_token);
-      window.location.href = "/analytics";
+      window.location.href = "/";
     } else {
       if (response.status === 404) {
         setError("User not found");

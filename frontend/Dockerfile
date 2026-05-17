@@ -1,4 +1,4 @@
-FROM node:18-alpine AS build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
@@ -17,4 +17,3 @@ FROM fholzer/nginx-brotli:v1.28.0
 
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY ./default.conf /etc/nginx/conf.d/default.conf
-COPY ./nginx.conf /etc/nginx/nginx.conf

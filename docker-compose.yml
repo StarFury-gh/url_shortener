@@ -2,8 +2,6 @@ services:
   analytics_db:
     container_name: analytics_db
     build: ./infra/db/analytics
-    ports:
-      - 5433:5432
     volumes:
       - analytics_data:/var/lib/postgresql
     networks:
@@ -13,8 +11,6 @@ services:
   shortener_db:
     container_name: shortener_db
     build: ./infra/db/shortener
-    ports:
-      - 5434:5432
     volumes:
       - shortener_data:/var/lib/postgresql
     networks:
@@ -24,15 +20,10 @@ services:
   rabbit:
     container_name: rabbit
     build: ./infra/rabbitmq
-    ports:
-      - 5672:5672
-      - 15672:15672
     networks:
       - event_driven
 
   redis_cache:
-    ports:
-      - 6379:6379
     build: ./infra/redis
     networks:
       - shortener_network
@@ -40,11 +31,10 @@ services:
   users_service:
     container_name: users_service
     build: ./backend/users_service
-    ports:
-      - 8003:8000
     networks:
       - shortener_network
       - analytics_network
+      - app_network
     depends_on:
       shortener_db:
         condition: service_healthy
@@ -52,11 +42,10 @@ services:
   shortener_service:
     container_name: shortener_service
     build: ./backend/shortener_service
-    ports:
-      - 8001:8000
     networks:
       - event_driven
       - shortener_network
+      - app_network
     depends_on:
       shortener_db:
         condition: service_healthy
@@ -78,16 +67,30 @@ services:
   analytics_service:
     container_name: analytics_service
     build: ./backend/analytics_service
-    ports:
-      - 8002:8000
     networks:
       - event_driven
       - analytics_network
+      - app_network
     depends_on:
       analytics_db:
         condition: service_healthy
 
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - 8080:80
+    networks:
+      - app_network
+
+    depends_on:
+      - shortener_service
+      - analytics_service
+      - users_service
+
 networks:
+  app_network:
+    driver: bridge
   analytics_network:
     driver: bridge
   shortener_network:
