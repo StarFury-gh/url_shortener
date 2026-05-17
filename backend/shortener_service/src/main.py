@@ -8,6 +8,7 @@ from core.db.postgres import create_pg_pool
 from core.rabbit import create_rmq_connection
 from core.cache.redis import create_redis_pool
 from core.middleware.ratelimiter import ratelimiter
+from core.utils import sync_slugs
 
 from api.shortener import sh_router
 
@@ -20,6 +21,10 @@ async def lifespan(app: FastAPI):
     app.state.pg_pool = pg_pool
     app.state.redis_pool = redis_pool
     app.state.rabbit = rabbit
+
+    # Sync redis and db
+    await sync_slugs(redis_pool, pg_pool)
+
     yield
     await app.state.rabbit.stop()
     await app.state.redis_pool.close()

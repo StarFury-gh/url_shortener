@@ -48,3 +48,10 @@ class ShortenerRepository:
             "DELETE FROM short_urls WHERE slug=$1 RETURNING origin", slug
         )
         return origin
+
+    async def get_last_slug(self) -> str | None:
+        """Return last created slug"""
+        slug = await self.db.fetchval(
+            "SELECT * FROM short_urls ORDER BY created_at DESC LIMIT 1"
+        )
+        return slug

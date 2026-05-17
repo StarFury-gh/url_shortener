@@ -74,6 +74,7 @@ class ShortenerService:
 
             # Generate new slug using previous
             slug = await generate_new_slug(prev_slug=prev_slug)
+            app_logger.info(f"Generated new slug: {slug}; prev_slug is: {prev_slug}")
             # Check if slug already exists
             # TODO: use this only for auth users
             link = await self.repo.get(slug)
