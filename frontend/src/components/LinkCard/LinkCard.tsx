@@ -11,18 +11,18 @@ interface LinkCardProps {
 
 function LinkCard(props: LinkCardProps) {
   const navigate = useNavigate();
+
+  const handleOriginClick = () => {
+    window.location.href = `${SH_API_URL}/sh/${props.slug}`;
+  };
+
   return (
     <Card
       key={props.slug}
       className={styles["card"]}
       size="medium"
       title={
-        <Button
-          type="link"
-          onClick={() => {
-            navigate(`${SH_API_URL}/sh/${props.slug}`);
-          }}
-        >
+        <Button type="link" onClick={handleOriginClick}>
           {props.slug}
         </Button>
       }

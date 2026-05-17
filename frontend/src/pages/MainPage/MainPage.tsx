@@ -4,7 +4,7 @@ import { Input, Button } from "antd";
 import CopyBtn from "../../components/CopyBtn";
 
 import styles from "./MainPage.module.css";
-import { ACCESS_TOKEN, SH_API_URL } from "../../constants";
+import { ACCESS_TOKEN, SH_API_URL, HOST } from "../../constants";
 
 function MainPage() {
   const [longUrl, setLongUrl] = useState<string>("");
@@ -16,7 +16,7 @@ function MainPage() {
 
   const handleShortify = async () => {
     try {
-      const url = SH_API_URL + "/sh/create";
+      const url = `${SH_API_URL}/sh/create`;
       const body = JSON.stringify({ original_url: longUrl });
       const jwt = localStorage.getItem(ACCESS_TOKEN);
       const response = await fetch(url, {
@@ -31,7 +31,7 @@ function MainPage() {
         const data = await response.json();
         console.log("data", data);
         const slug = data.slug;
-        const resultUrl = SH_API_URL + "/sh/" + slug;
+        const resultUrl = HOST + "/sh/" + slug;
         setShortUrl(resultUrl);
       } else {
         const message = await response.json();
