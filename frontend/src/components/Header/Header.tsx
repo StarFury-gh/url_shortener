@@ -26,7 +26,7 @@ function Header(props: HeaderProps) {
         <Button type="link" size="large" onClick={() => navigate("/")}>
           Shortify
         </Button>
-        <Button type="link" size="large" onClick={() => navigate("/analytics")}>
+        <Button type="link" size="large" onClick={() => navigate("/analytic")}>
           Analytics
         </Button>
         {props.auth.auth ? (

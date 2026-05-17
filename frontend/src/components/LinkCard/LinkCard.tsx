@@ -31,7 +31,7 @@ function LinkCard(props: LinkCardProps) {
         <p>{props.original_url}</p>
         <Button
           onClick={() => {
-            navigate(`/analytics/${props.slug}`);
+            navigate(`/analytic/${props.slug}`);
           }}
         >
           Get analytics

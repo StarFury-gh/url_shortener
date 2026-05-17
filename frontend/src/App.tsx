@@ -27,11 +27,11 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />}></Route>
           <Route
-            path="/analytics"
+            path="/analytic"
             element={<LinksPage auth={auth.auth} userId={auth.user?.id} />}
           ></Route>
           <Route
-            path="/analytics/:slug"
+            path="/analytic/:slug"
             element={<LinkAnalyticPage auth={auth.auth} />}
           ></Route>
           <Route path="/login" element={<LoginPage />}></Route>

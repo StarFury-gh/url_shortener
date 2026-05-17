@@ -18,6 +18,7 @@ interface LinksPageProps {
 
 function LinkStatsPage(props: LinksPageProps) {
   const [links, setLinks] = useState<Array<LinkInfo>>([]);
+
   useEffect(() => {
     const fetchLinks = async () => {
       if (props.auth) {
@@ -39,7 +40,8 @@ function LinkStatsPage(props: LinksPageProps) {
       }
     };
     fetchLinks();
-  }, []);
+  }, [props.auth]);
+
   return (
     <div className={styles["container"]}>
       {props.auth ? (

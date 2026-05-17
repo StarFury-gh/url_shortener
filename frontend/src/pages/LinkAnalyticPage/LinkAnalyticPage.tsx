@@ -54,7 +54,7 @@ function LinkAnalyticPage(props: AnalyticsPageProps) {
   useEffect(() => {
     if (props.auth) {
       const getSlugInfo = async (slug: string) => {
-        const url = AN_API_URL + "/analytics/" + slug;
+        const url = `${AN_API_URL}/analytics/${slug}`;
         const token = localStorage.getItem(ACCESS_TOKEN);
         const response = await fetch(url, {
           headers: {
