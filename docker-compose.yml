@@ -24,6 +24,7 @@ services:
       - event_driven
 
   redis_cache:
+    container_name: redis_cache
     build: ./infra/redis
     networks:
       - shortener_network

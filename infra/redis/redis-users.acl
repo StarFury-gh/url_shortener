@@ -1,0 +1,3 @@
+user admin on >01766 allkeys allcommands
+user appuser on >01766 ~app:* +@all -@dangerous
+user monitoring on >01766 +info +config|get +client +slowlog +latency +command +cluster|info +memory +select ~*
