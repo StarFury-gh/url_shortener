@@ -12,10 +12,11 @@ def _get_settings(config_path: str = "./logger_config.json") -> dict:
     return config
 
 
-def get_logger(name: str = __name__) -> logging.Logger:
-    logger_config = _get_settings()
-    logging.config.dictConfig(logger_config)
+def get_logger(logger_name: str):
+    def get__logger():
+        logger_config = _get_settings()
+        logging.config.dictConfig(logger_config)
+        logger = logging.getLogger(logger_name)
+        return logger
 
-    logger = logging.getLogger(name)
-
-    return logger
+    return get__logger

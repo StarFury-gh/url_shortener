@@ -53,4 +53,4 @@ ALLOWED_SYMBOLS = [
     "z",
 ]
 
-REDIS_SLUG_KEY = "last_slug"
+REDIS_SLUG_KEY = "app:last_slug"

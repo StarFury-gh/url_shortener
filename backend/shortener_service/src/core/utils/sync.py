@@ -6,7 +6,7 @@ from core.logger import get_logger
 
 
 async def sync_slugs(redis: Redis, db_pool: Pool) -> None:
-    logger = get_logger(__name__)
+    logger = get_logger(__name__)()
     db_conn = await db_pool.acquire()
     repo = ShortenerRepository(db_conn)
     last_slug = await repo.get_last_slug()

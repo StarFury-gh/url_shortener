@@ -39,7 +39,7 @@ async def create_short_link(
     auth: AuthUserResponse = Depends(get_auth),
     broker=Depends(get_publisher),
     redis=Depends(get_redis),
-    app_logger=Depends(get_logger),
+    app_logger=Depends(get_logger(__name__)),
 ):
     return await service.create_link(
         body, broker=broker, redis=redis, app_logger=app_logger, auth=auth

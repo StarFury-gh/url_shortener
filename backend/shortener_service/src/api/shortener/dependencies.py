@@ -28,7 +28,7 @@ async def get_request_info(r: Request) -> RequestInfo:
 
 async def get_auth(
     authorization: str = Header(None, alias="Authorization"),
-    logger: Logger = Depends(get_logger),
+    logger: Logger = Depends(get_logger(__name__)),
 ) -> AuthUserResponse | None:
     """Check user's authorization.
 

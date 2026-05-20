@@ -2,22 +2,24 @@ from fastapi import Request, status
 from fastapi.responses import JSONResponse
 from redis.asyncio import Redis
 
+from typing import Callable
 from hashlib import sha256
 
 from core.logger import get_logger
 
 LIMITER_TTL = 30  # Timeout seconds
-LIMITER_COUNT = 10
+LIMITER_COUNT = 100  # Count of requests before blocking
 
 
 def ratelimiter(ttl: int = LIMITER_TTL, limit: int = LIMITER_COUNT):
-    async def limit_rate(req: Request, next: callable):
-        logger = get_logger(__name__)
+    async def limit_rate(req: Request, next: Callable):
+        logger = get_logger(__name__)()
 
         ip = req.client.host
         redis: Redis = req.app.state.redis_pool
         hashed_ip = sha256(ip.encode("utf-8")).hexdigest()
-        key = f"ratelimit:{hashed_ip}"
+        # TODO: move key to constants
+        key = f"app:ratelimit:{hashed_ip}"
         calls_count = await redis.get(key)
         if calls_count is None:
             await redis.set(key, 0, ex=ttl)

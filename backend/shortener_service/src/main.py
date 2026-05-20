@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 
 from core.db.postgres import create_pg_pool
 from core.rabbit import create_rmq_connection
-from core.cache.redis import create_redis_pool
+from core.cache.redis import init_redis
 from core.middleware.ratelimiter import ratelimiter
 from core.utils import sync_slugs
 
@@ -17,7 +17,7 @@ from api.shortener import sh_router
 async def lifespan(app: FastAPI):
     pg_pool = await create_pg_pool()
     rabbit = await create_rmq_connection()
-    redis_pool = await create_redis_pool()
+    redis_pool = await init_redis()
     app.state.pg_pool = pg_pool
     app.state.redis_pool = redis_pool
     app.state.rabbit = rabbit
@@ -38,7 +38,12 @@ app.middleware("http")(ratelimiter())
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "frontend:5173", "http://127.0.0.1:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://frontend:8080",
+        "http://frontend:80",
+    ],
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )

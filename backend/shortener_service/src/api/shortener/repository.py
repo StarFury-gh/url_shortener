@@ -1,5 +1,6 @@
 from asyncpg import Connection
 from typing import List
+
 from .schemas import Link
 
 

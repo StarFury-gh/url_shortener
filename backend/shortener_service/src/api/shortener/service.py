@@ -5,8 +5,8 @@ from redis.asyncio import Redis
 
 from logging import Logger
 
-from core.utils import is_valid_url, generate_new_slug
-from core.utils import constants
+from core.utils import is_valid_url, generate_new_slug, constants
+from core.cache.redis import use_cache
 from core.rabbit import RabbitPublisher
 from core.rabbit.schemas import RedirectRequestInfo
 
@@ -18,6 +18,7 @@ class ShortenerService:
     def __init__(self, repo: ShortenerRepository) -> None:
         self.repo = repo
 
+    @use_cache()
     async def get_links(
         self,
         auth: AuthUserResponse | None,
@@ -64,13 +65,14 @@ class ShortenerService:
 
             original_url = body.original_url.strip("/")
             # Get previous generated slug from Redis
-            prev_slug_bytes = await redis.get(constants.REDIS_SLUG_KEY)
+            prev_slug_bytes: bytes = await redis.get(constants.REDIS_SLUG_KEY)
             # If it is the first request, we will get None
             if prev_slug_bytes is None:
                 prev_slug = prev_slug_bytes
             # Else, we get raw str, encode it to utf-8
             else:
-                prev_slug = prev_slug_bytes.decode("utf-8")
+                app_logger.info(f"Previous slug is: {prev_slug_bytes}")
+                prev_slug = prev_slug_bytes
 
             # Generate new slug using previous
             slug = await generate_new_slug(prev_slug=prev_slug)

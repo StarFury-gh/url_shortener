@@ -22,7 +22,7 @@ class Config:
         self.REDIS_PORT = getenv("REDIS_PORT")
         self.REDIS_PASSWORD = getenv("REDIS_PASSWORD")
         self.REDIS_USER = getenv("REDIS_USER")
-        self.REDIS_DSN = f"redis://{self.REDIS_HOST}:{self.REDIS_PORT}@{self.REDIS_USER}:{self.REDIS_PASSWORD}"
+        self.REDIS_DSN = f"redis://{self.REDIS_USER}:{self.REDIS_PASSWORD}@{self.REDIS_HOST}:{self.REDIS_PORT}"
 
         self.USERS_SERVICE = getenv("USERS_SERVICE")
 
