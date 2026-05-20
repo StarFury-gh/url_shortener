@@ -32,6 +32,7 @@ function LinkStatsPage(props: LinksPageProps) {
           });
           if (response.ok) {
             const data = await response.json();
+            console.log("data:", data);
             setLinks(data.links);
           }
         } catch (e) {

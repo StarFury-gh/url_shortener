@@ -33,6 +33,7 @@ function MainPage() {
         const slug = data.slug;
         const resultUrl = HOST + "/sh/" + slug;
         setShortUrl(resultUrl);
+        setError("");
       } else {
         const message = await response.json();
         setError(message.detail);
