@@ -1,5 +1,7 @@
 from fastapi import HTTPException, status
 
+from core.cache.redis import use_cache
+
 from .repository import AnalyticsRepository
 from .schemas import FullSlugInfo
 
@@ -8,6 +10,7 @@ class AnalyticsService:
     def __init__(self, repo: AnalyticsRepository):
         self._repo = repo
 
+    @use_cache()
     async def get_full_slug_info(self, slug: str, auth: dict) -> FullSlugInfo:
         is_owner = await self._repo.check_ownership(slug, auth.get("id"))
         if is_owner:

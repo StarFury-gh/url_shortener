@@ -1,6 +1,7 @@
 from asyncpg import Connection
 from typing import List
 
+from core.cache.redis import use_cache
 from .schemas import Link
 
 
@@ -8,8 +9,12 @@ class ShortenerRepository:
     def __init__(self, db: Connection) -> None:
         self.db = db
 
-    async def get(self, slug: str) -> Link | None:
-        """Return shortified link"""
+    @use_cache()
+    async def get(self, slug: str) -> Link | dict | None:
+        """
+        Return shortified link.
+        Return dict in way, if had been cached
+        """
         record = await self.db.fetchrow(
             "SELECT origin FROM short_urls WHERE slug=$1", slug
         )

@@ -5,14 +5,17 @@ from uvicorn import run
 from contextlib import asynccontextmanager
 
 from core.db.postgres import create_pg_pool
+from core.cache.redis import init_redis, close_redis
 from api.analytics import an_router
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     app.state.pg_pool = await create_pg_pool()
+    await init_redis()
     yield
     await app.state.pg_pool.close()
+    await close_redis()
 
 
 app = FastAPI(lifespan=lifespan)

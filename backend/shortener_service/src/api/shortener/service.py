@@ -6,19 +6,17 @@ from redis.asyncio import Redis
 from logging import Logger
 
 from core.utils import is_valid_url, generate_new_slug, constants
-from core.cache.redis import use_cache
 from core.rabbit import RabbitPublisher
 from core.rabbit.schemas import RedirectRequestInfo
 
 from .repository import ShortenerRepository
-from .schemas import CreateLinkDTO, AuthUserResponse
+from .schemas import CreateLinkDTO, AuthUserResponse, Link
 
 
 class ShortenerService:
     def __init__(self, repo: ShortenerRepository) -> None:
         self.repo = repo
 
-    @use_cache()
     async def get_links(
         self,
         auth: AuthUserResponse | None,
@@ -36,6 +34,9 @@ class ShortenerService:
         self, slug: str, broker: RabbitPublisher, info: RedirectRequestInfo
     ):
         link = await self.repo.get(slug)
+
+        if type(link) is dict:
+            link = Link(**link)
 
         if link:
             # Message about redirect
@@ -79,28 +80,26 @@ class ShortenerService:
             app_logger.info(f"Generated new slug: {slug}; prev_slug is: {prev_slug}")
             # Check if slug already exists
             # TODO: use this only for auth users
-            link = await self.repo.get(slug)
+            # link = await self.repo.get(slug)
 
             app_logger.info(
                 f"Created new link with slug: {slug}, original_url: {body.original_url}"
             )
 
-            if not link:
+            if auth is None:
+                auth_id = None
+            else:
+                auth_id = auth.id
 
-                if auth is None:
-                    auth_id = None
-                else:
-                    auth_id = auth.id
-
-                await self.repo.create(
-                    original_url=original_url, slug=slug, author_id=auth_id
-                )
-                # Send message to another microservice: "User created new short link,
-                # please, create record about this in analytics db"
-                await broker.publish(
-                    {"operation": "created", "slug": slug, "author": auth_id},
-                    queue="links_actions",
-                )
+            await self.repo.create(
+                original_url=original_url, slug=slug, author_id=auth_id
+            )
+            # Send message to another microservice: "User created new short link,
+            # please, create record about this in analytics db"
+            await broker.publish(
+                {"operation": "created", "slug": slug, "author": auth_id},
+                queue="links_actions",
+            )
 
             # Save new slug to the Redis
             await redis.set(constants.REDIS_SLUG_KEY, slug)

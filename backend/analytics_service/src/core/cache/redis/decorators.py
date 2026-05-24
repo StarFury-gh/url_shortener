@@ -65,7 +65,7 @@ def use_cache(ttl: int = 60):
         @wraps(func)
         async def wrapper(
             *args,
-            logger: Logger = get_logger(__name__)(),
+            logger: Logger = get_logger(__name__),
             **kwargs,
         ):
             redis: Redis = get_redis()
