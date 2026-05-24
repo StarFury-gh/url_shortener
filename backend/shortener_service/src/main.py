@@ -34,7 +34,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 app.include_router(sh_router)
 
-app.middleware("http")(ratelimiter())
+# app.middleware("http")(ratelimiter())
 
 app.add_middleware(
     CORSMiddleware,
@@ -49,4 +49,4 @@ app.add_middleware(
 )
 
 if __name__ == "__main__":
-    run("main:app", host="0.0.0.0", port=8000, reload=True)
+    run("main:app", host="0.0.0.0", port=8000, workers=5)
